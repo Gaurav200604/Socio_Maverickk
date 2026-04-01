@@ -1,0 +1,170 @@
+.t-section {
+  position: relative;
+  background: #0d0d0d;
+  overflow: hidden;
+  padding: 80px 0;
+}
+
+/* ── spotlight over watermark ── */
+.t-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  height: 280px;
+  background: radial-gradient(ellipse at center,
+    rgba(244,166,35,0.32) 0%,
+    rgba(244,166,35,0.12) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(20px);
+}
+
+/* ── watermark ── */
+.t-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(5rem, 16vw, 14rem);
+  font-weight: 900;
+  letter-spacing: -4px;
+  color: rgba(255,255,255,0.07);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* ── 3-column grid ── */
+.t-grid {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+/* ── each column ── */
+.t-col {
+  position: relative;
+  height: 680px;
+  overflow: hidden;
+}
+
+.t-fade-top,
+.t-fade-bottom {
+  position: absolute;
+  left: 0; right: 0;
+  height: 90px;
+  z-index: 2;
+  pointer-events: none;
+}
+.t-fade-top    { top: 0;    background: linear-gradient(to bottom, #0d0d0d, transparent); }
+.t-fade-bottom { bottom: 0; background: linear-gradient(to top,    #0d0d0d, transparent); }
+
+.t-track {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  will-change: transform;
+}
+
+/* ── card ── */
+.t-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 24px 22px 20px;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.t-card:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(244,166,35,0.3);
+}
+
+.t-stars {
+  color: var(--saffron);
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+}
+
+.t-para {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.75;
+  margin-bottom: 18px;
+}
+
+.t-big-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: rgba(244,166,35,0.4);
+  line-height: 0;
+  vertical-align: -0.9rem;
+  margin-right: 2px;
+  display: inline;
+}
+
+.t-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+.t-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--saffron), var(--saffron-dark));
+  color: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.t-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.t-company {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-top: 2px;
+}
+
+/* ── responsive ── */
+@media (max-width: 900px) {
+  .t-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  /* on mobile show only col 1, hide others */
+  .t-col:nth-child(2),
+  .t-col:nth-child(3) {
+    display: none;
+  }
+  .t-col { height: 560px; }
+}

@@ -1,0 +1,153 @@
+.why-section {
+  background: var(--white);
+  padding: 100px 0 80px;
+  overflow: hidden;
+}
+
+.why-header {
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 0 24px;
+}
+
+.why-header .section-tag {
+  display: inline-block;
+  background: rgba(244,166,35,0.12);
+  color: var(--saffron-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 16px;
+}
+
+.why-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--light-black);
+  letter-spacing: -1px;
+  margin-bottom: 14px;
+}
+
+.why-title .accent { color: var(--saffron); }
+
+.why-sub {
+  font-size: 1rem;
+  color: var(--gray);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ── stage ── */
+.why-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 48px;
+  padding: 20px 0 40px;
+  position: relative;
+  cursor: pointer;
+}
+
+/* ── base card ── */
+.why-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: all 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.why-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: filter 0.55s ease;
+}
+
+/* center — sharp, big, elevated */
+.why-center {
+  width: 520px;
+  height: 340px;
+  z-index: 10;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.25);
+  transform: translateY(-16px) scale(1.04);
+}
+
+.why-center img {
+  filter: blur(0) brightness(1);
+}
+
+/* left & right — blurred, smaller, behind */
+.why-left,
+.why-right {
+  width: 300px;
+  height: 260px;
+  z-index: 5;
+  transform: translateY(0) scale(1);
+}
+
+.why-left {
+  margin-right: -40px;
+  box-shadow: 4px 0 30px rgba(0,0,0,0.12);
+}
+
+.why-right {
+  margin-left: -40px;
+  box-shadow: -4px 0 30px rgba(0,0,0,0.12);
+}
+
+.why-left img,
+.why-right img {
+  filter: blur(4px) brightness(0.65);
+}
+
+/* label on center */
+.why-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.72), transparent);
+  color: #fff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 28px 22px 18px;
+  border-radius: 0 0 18px 18px;
+}
+
+/* ── dots ── */
+.why-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.why-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  border: none;
+  cursor: none;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.why-dot.active {
+  background: var(--saffron);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .why-left, .why-right { width: 160px; height: 200px; }
+  .why-center { width: 300px; height: 240px; }
+}
