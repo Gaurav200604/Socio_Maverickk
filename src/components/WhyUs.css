@@ -1,154 +1,191 @@
-.why-section {
-  background: var(--white);
-  padding: 100px 0 80px;
-  margin-top: 80px;
+.ws-section {
+  background: #fdfcfb;
+  padding: 80px 0;
   overflow: hidden;
 }
 
-.why-header {
+/* ── top header ── */
+.ws-header {
   text-align: center;
-  margin-bottom: 60px;
+  max-width: 600px;
+  margin: 0 auto 56px;
   padding: 0 24px;
 }
 
-.why-header .section-tag {
+.ws-header-tag {
   display: inline-block;
-  background: rgba(244,166,35,0.12);
-  color: var(--saffron-dark);
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  padding: 6px 16px;
+  color: var(--saffron-dark);
+  background: rgba(244,166,35,0.1);
+  padding: 5px 14px;
   border-radius: 50px;
   margin-bottom: 16px;
 }
 
-.why-title {
+.ws-header-title {
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
+  font-weight: 900;
   color: var(--light-black);
   letter-spacing: -1px;
   margin-bottom: 14px;
+  line-height: 1.1;
 }
 
-.why-title .accent { color: var(--saffron); }
+.ws-header-accent { color: var(--saffron); }
 
-.why-sub {
+.ws-header-sub {
   font-size: 1rem;
   color: var(--gray);
-  max-width: 500px;
-  margin: 0 auto;
   line-height: 1.7;
 }
 
-/* ── stage ── */
-.why-stage {
-  display: flex;
+/* fixed-size container so all slides are identical */
+.ws-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 48px;
-  padding: 20px 0 40px;
-  position: relative;
-  cursor: pointer;
+  min-height: 420px;
 }
 
-/* ── base card ── */
-.why-card {
-  position: relative;
-  border-radius: 18px;
-  overflow: hidden;
-  flex-shrink: 0;
-  transition: all 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+/* ── animations ── */
+.ws-in .ws-text {
+  animation: wsTextIn 0.55s cubic-bezier(0.4,0,0.2,1) both;
+}
+.ws-in .ws-img-wrap {
+  animation: wsImgIn 0.55s cubic-bezier(0.4,0,0.2,1) 0.1s both;
+}
+.ws-out .ws-text {
+  animation: wsTextOut 0.35s cubic-bezier(0.4,0,0.2,1) both;
+}
+.ws-out .ws-img-wrap {
+  animation: wsImgOut 0.35s cubic-bezier(0.4,0,0.2,1) both;
 }
 
-.why-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: filter 0.55s ease;
-}
+@keyframes wsTextIn  { from { opacity:0; transform:translateX(-50px); } to { opacity:1; transform:translateX(0); } }
+@keyframes wsImgIn   { from { opacity:0; transform:translateX(40px);  } to { opacity:1; transform:translateX(0); } }
+@keyframes wsTextOut { from { opacity:1; transform:translateX(0);      } to { opacity:0; transform:translateX(-30px); } }
+@keyframes wsImgOut  { from { opacity:1; transform:translateX(0);      } to { opacity:0; transform:translateX(20px);  } }
 
-/* center — sharp, big, elevated */
-.why-center {
-  width: 520px;
-  height: 340px;
-  z-index: 10;
-  box-shadow: 0 24px 64px rgba(0,0,0,0.25);
-  transform: translateY(-16px) scale(1.04);
-}
-
-.why-center img {
-  filter: blur(0) brightness(1);
-}
-
-/* left & right — blurred, smaller, behind */
-.why-left,
-.why-right {
-  width: 300px;
-  height: 260px;
-  z-index: 5;
-  transform: translateY(0) scale(1);
-}
-
-.why-left {
-  margin-right: -40px;
-  box-shadow: 4px 0 30px rgba(0,0,0,0.12);
-}
-
-.why-right {
-  margin-left: -40px;
-  box-shadow: -4px 0 30px rgba(0,0,0,0.12);
-}
-
-.why-left img,
-.why-right img {
-  filter: blur(4px) brightness(0.65);
-}
-
-/* label on center */
-.why-label {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.72), transparent);
-  color: #fff;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  padding: 28px 22px 18px;
-  border-radius: 0 0 18px 18px;
-}
-
-/* ── dots ── */
-.why-dots {
+/* ── text side ── */
+.ws-text {
   display: flex;
-  justify-content: center;
-  gap: 8px;
+  flex-direction: column;
 }
 
-.why-dot {
+.ws-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--saffron-dark);
+  background: rgba(244,166,35,0.1);
+  padding: 5px 14px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  align-self: flex-start;
+}
+
+.ws-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+  font-weight: 900;
+  color: var(--light-black);
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+  margin-bottom: 20px;
+  white-space: pre-line;
+}
+
+.ws-accent { color: var(--saffron); }
+
+.ws-desc {
+  font-size: 1rem;
+  color: var(--gray);
+  line-height: 1.75;
+  margin-bottom: 32px;
+  max-width: 440px;
+}
+
+/* progress bar */
+.ws-progress {
+  width: 100%;
+  height: 3px;
+  background: rgba(0,0,0,0.08);
+  border-radius: 2px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.ws-progress-bar {
+  height: 100%;
+  background: var(--saffron);
+  border-radius: 2px;
+  animation: wsProgress 3.5s linear both;
+}
+
+@keyframes wsProgress {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+/* dots */
+.ws-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.ws-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--border);
+  background: #ccc;
   border: none;
   cursor: none;
   transition: all 0.3s ease;
   padding: 0;
 }
 
-.why-dot.active {
+.ws-dot.active {
   background: var(--saffron);
-  width: 24px;
+  width: 28px;
   border-radius: 4px;
 }
 
-/* responsive */
-@media (max-width: 768px) {
-  .why-left, .why-right { width: 160px; height: 200px; }
-  .why-center { width: 300px; height: 240px; }
+/* ── image side — fixed dimensions ── */
+.ws-img-wrap {
+  width: 100%;
+  height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(244,166,35,0.04);
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.ws-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .ws-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 24px;
+    min-height: auto;
+  }
+  .ws-img-wrap { height: 260px; }
 }

@@ -22,9 +22,8 @@ export default function App() {
         <div id="services">
           <Services />
         </div>
-<Clients />
+        <Clients />
         <WhyUs />
-        
         <ScrollQuote />
         <Testimonials />
         <FAQ />

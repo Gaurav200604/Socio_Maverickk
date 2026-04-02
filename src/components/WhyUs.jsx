@@ -1,82 +1,94 @@
-import { useEffect, useRef, useState } from 'react';
-import img1 from '../assetwus/1..jpg';
-import img2 from '../assetwus/2.jpg';
-import img3 from '../assetwus/3..jpg';
-import img4 from '../assetwus/4.jpg';
+import { useState, useEffect } from 'react';
+import img1 from '../assetwhy/1.png';
+import img2 from '../assetwhy/2.png';
+import img3 from '../assetwhy/3.png';
 import './WhyUs.css';
 
 const slides = [
-  { src: img1, label: 'Strategy First' },
-  { src: img2, label: 'Data-Driven Results' },
-  { src: img3, label: 'Bold Creative' },
-  { src: img4, label: 'True Partnership' },
+  {
+    img: img1,
+    tag: 'Why Choose Us',
+    title: 'Get Result-Driven\nCampaigns focusing on\nyour Business Goals.',
+    accent: 'Result-Driven',
+    desc: 'We craft data-backed strategies that align with your business objectives and deliver measurable growth.',
+  },
+  {
+    img: img2,
+    tag: 'Our Approach',
+    title: 'Creative Content\nthat Stops the Scroll\nand Drives Action.',
+    accent: 'Stops the Scroll',
+    desc: 'From reels to carousels, our creative team produces content that captures attention and converts audiences.',
+  },
+  {
+    img: img3,
+    tag: 'Our Promise',
+    title: 'Transparent Reporting\nwith Real Numbers\nthat Matter.',
+    accent: 'Real Numbers',
+    desc: 'Every campaign comes with clear, honest reporting so you always know exactly where your investment is going.',
+  },
 ];
 
 export default function WhyUs() {
-  const [active, setActive] = useState(0);
-  const pausedRef = useRef(false);
+  const [current, setCurrent] = useState(0);
+  const [animating, setAnimating] = useState(true);
 
   useEffect(() => {
-    const t = setInterval(() => {
-      if (!pausedRef.current) {
-        setActive(a => (a + 1) % slides.length);
-      }
-    }, 2600);
-    return () => clearInterval(t);
+    const timer = setInterval(() => {
+      setAnimating(false);
+      setTimeout(() => {
+        setCurrent(c => (c + 1) % slides.length);
+        setAnimating(true);
+      }, 400);
+    }, 3500);
+    return () => clearInterval(timer);
   }, []);
 
-  const n = slides.length;
-  // get index with circular wrap
-  const idx = (i) => ((i % n) + n) % n;
+  const slide = slides[current];
 
-  const leftIdx   = idx(active - 1);
-  const centerIdx = active;
-  const rightIdx  = idx(active + 1);
+  // split title to highlight accent word
+  const titleParts = slide.title.split(slide.accent);
 
   return (
-    <section id="why" className="why-section">
-      <div className="why-header">
-        <h2 className="why-title">
-          Why <span className="accent">Socio_Maverick</span>?
+    <section className="ws-section">
+      <div className="ws-header">
+        <h2 className="ws-header-title">
+          Why <span className="ws-header-accent">Socio_Maverick</span>?
         </h2>
-        <p className="why-sub">
-          We're not just another agency — we're your growth partner, obsessed with
-          results and relentless in pursuit of your brand's success.
+        <p className="ws-header-sub">
+          We're not just another agency — we're your growth partner, obsessed with results.
         </p>
       </div>
 
-      <div
-        className="why-stage"
-        onMouseEnter={() => { pausedRef.current = true; }}
-        onMouseLeave={() => { pausedRef.current = false; }}
-      >
-        {/* left */}
-        <div className="why-card why-left" onClick={() => setActive(leftIdx)}>
-          <img src={slides[leftIdx].src} alt={slides[leftIdx].label} />
+      <div className={`ws-inner ${animating ? 'ws-in' : 'ws-out'}`}>
+
+        {/* left text */}
+        <div className="ws-text">
+          <span className="ws-tag">{slide.tag}</span>
+          <h2 className="ws-title">
+            {titleParts[0]}
+            <span className="ws-accent">{slide.accent}</span>
+            {titleParts[1]}
+          </h2>
+          <p className="ws-desc">{slide.desc}</p>
+          <div className="ws-progress">
+            <div className="ws-progress-bar" key={current} />
+          </div>
+          <div className="ws-dots">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                className={`ws-dot ${i === current ? 'active' : ''}`}
+                onClick={() => { setAnimating(false); setTimeout(() => { setCurrent(i); setAnimating(true); }, 300); }}
+              />
+            ))}
+          </div>
         </div>
 
-        {/* center */}
-        <div className="why-card why-center">
-          <img src={slides[centerIdx].src} alt={slides[centerIdx].label} />
-          <div className="why-label">{slides[centerIdx].label}</div>
+        {/* right image */}
+        <div className="ws-img-wrap">
+          <img src={slide.img} alt={slide.tag} className="ws-img" />
         </div>
 
-        {/* right */}
-        <div className="why-card why-right" onClick={() => setActive(rightIdx)}>
-          <img src={slides[rightIdx].src} alt={slides[rightIdx].label} />
-        </div>
-      </div>
-
-      {/* dots */}
-      <div className="why-dots">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            className={`why-dot ${active === i ? 'active' : ''}`}
-            onClick={() => setActive(i)}
-            aria-label={`Slide ${i + 1}`}
-          />
-        ))}
       </div>
     </section>
   );

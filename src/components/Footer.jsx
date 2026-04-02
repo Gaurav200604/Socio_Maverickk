@@ -52,26 +52,62 @@ export default function Footer() {
       {/* ── CTA band ── */}
       <div className="ft-cta-band">
         <div className="ft-cta-inner">
+
+          {/* left — dark side */}
           <div className="ft-cta-left">
-            <h2 className="ft-cta-title">Ready to grow<br />your brand?</h2>
-            <p className="ft-cta-sub">Let's talk.</p>
-            
-          </div>
-          <form className="ft-form" ref={formRef} onSubmit={submit}>
-            {sent && <div className="ft-success">✅ Message sent! We'll be in touch soon.</div>}
-            {error && <div className="ft-error">{error}</div>}
-            <div className="ft-form-row">
-              <input type="text" name="name" placeholder="Your Name" required value={form.name}
-                onChange={e => setForm({ ...form, name: e.target.value })} />
-              <input type="email" name="email" placeholder="Email Address" required value={form.email}
-                onChange={e => setForm({ ...form, email: e.target.value })} />
+            <p className="ft-cta-eyebrow">Maximise Your Business Growth With,</p>
+            <h2 className="ft-cta-title">
+              India's Top<br />
+              Digital Marketing<br />
+              <span className="ft-cta-accent">Agency</span>
+            </h2>
+            <p className="ft-cta-desc">
+              Armed with data-driven strategies and a sharp creative mindset, we tackle the toughest
+              challenges in digital marketing. Watch your brand grow while your competition wonders how.
+            </p>
+            <div className="ft-cta-stats">
+              <div className="ft-stat">
+                <span className="ft-stat-num">150+</span>
+                <span className="ft-stat-label">Clients Served</span>
+              </div>
+              <div className="ft-stat">
+                <span className="ft-stat-num">3x</span>
+                <span className="ft-stat-label">Avg. Growth Rate</span>
+              </div>
+              <div className="ft-stat">
+                <span className="ft-stat-num">98%</span>
+                <span className="ft-stat-label">Client Satisfaction</span>
+              </div>
             </div>
-            <textarea name="message" placeholder="Tell us about your project..." rows={4} required value={form.message}
-              onChange={e => setForm({ ...form, message: e.target.value })} />
-            <button type="submit" className="ft-submit" disabled={sending}>
-              {sending ? 'Sending...' : <>Send Message <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" /></svg></>}
-            </button>
-          </form>
+          </div>
+
+          {/* right — white card form */}
+          <div className="ft-cta-card">
+            <h3 className="ft-card-title">Ready to Grow? Let's Start With a Conversation.</h3>
+            <p className="ft-card-sub">Growth is Closer Than You Think. Let's Talk.</p>
+            <form className="ft-form" ref={formRef} onSubmit={submit}>
+              {sent && <div className="ft-success">✅ Message sent! We'll be in touch soon.</div>}
+              {error && <div className="ft-error">{error}</div>}
+              <div className="ft-form-row">
+                <input type="text" name="name" placeholder="Name*" required
+                  value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} />
+                <input type="email" name="email" placeholder="Email*" required
+                  value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} />
+              </div>
+              <div className="ft-form-row">
+                <input type="tel" name="phone" placeholder="Phone No.*"
+                  value={form.phone || ''} onChange={e => setForm({ ...form, phone: e.target.value })} />
+                <input type="text" name="company" placeholder="Company / Brand Name"
+                  value={form.company || ''} onChange={e => setForm({ ...form, company: e.target.value })} />
+              </div>
+              <textarea name="message" placeholder="Message" rows={4} required
+                value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} />
+              <button type="submit" className="ft-submit" disabled={sending}>
+                {sending ? 'Sending...' : 'Request a Free Consultation'}
+              </button>
+            </form>
+          </div>
+
         </div>
       </div>
 
