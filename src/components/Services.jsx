@@ -71,29 +71,6 @@ export default function Services() {
           <button className="srv-cta" onClick={() => scrollTo('contact')}>
             Get a Free Proposal
           </button>
-
-          {/* nav arrows */}
-          <div className="srv-nav">
-            <button
-              className={`srv-arrow ${page === 0 ? 'disabled' : ''}`}
-              onClick={() => page > 0 && setPage(p => p - 1)}
-              aria-label="Previous"
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M19 12H5M12 5l-7 7 7 7" />
-              </svg>
-            </button>
-            <span className="srv-page-info">{page + 1} / {totalPages}</span>
-            <button
-              className={`srv-arrow ${page === totalPages - 1 ? 'disabled' : ''}`}
-              onClick={() => page < totalPages - 1 && setPage(p => p + 1)}
-              aria-label="Next"
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
         </div>
 
         {/* RIGHT — 2×2 grid */}
@@ -116,6 +93,29 @@ export default function Services() {
           </div>
         </div>
 
+      </div>
+
+      {/* nav arrows in the bottom gap */}
+      <div className="srv-bottom-nav">
+        <button
+          className={`srv-arrow ${page === 0 ? 'disabled' : ''}`}
+          onClick={() => page > 0 && setPage(p => p - 1)}
+          aria-label="Previous"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <path d="M19 12H5M12 5l-7 7 7 7" />
+          </svg>
+        </button>
+        <span className="srv-page-info">{page + 1} / {totalPages}</span>
+        <button
+          className={`srv-arrow ${page === totalPages - 1 ? 'disabled' : ''}`}
+          onClick={() => page < totalPages - 1 && setPage(p => p + 1)}
+          aria-label="Next"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
       </div>
     </section>
   );

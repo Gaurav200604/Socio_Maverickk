@@ -2,10 +2,7 @@
   height: 100vh;
   position: relative;
   overflow: hidden;
-  background-color: #fdfcfb;
-  background-image:
-    radial-gradient(circle, rgba(220,150,150,0.35) 1px, transparent 1px);
-  background-size: 32px 32px;
+  background: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,50 +10,44 @@
   padding: 100px 48px 80px;
 }
 
-/* center fade */
-.hero::before {
-  content: '';
+/* ── interactive grid canvas ── */
+.hero-grid-canvas {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 70% 70% at 50% 50%,
-    rgba(253,252,251,0.92) 0%,
-    rgba(253,252,251,0.6) 55%,
+  width: 100%;
+  height: 100%;
+  pointer-events: all;
+  z-index: 0;
+}
+
+/* ── side orange/saffron gradients ── */
+.hero-grad-left,
+.hero-grad-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 22%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-grad-left {
+  left: 0;
+  background: linear-gradient(to right,
+    rgba(244,120,60,0.55) 0%,
+    rgba(244,166,35,0.2) 60%,
     transparent 100%);
-  pointer-events: none;
-  z-index: 0;
 }
 
-/* saffron glow */
-.hero::after {
-  content: '';
-  position: absolute;
-  top: -80px;
-  right: -80px;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(244,166,35,0.1) 0%, transparent 65%);
-  pointer-events: none;
-  z-index: 0;
+.hero-grad-right {
+  right: 0;
+  background: linear-gradient(to left,
+    rgba(244,120,60,0.55) 0%,
+    rgba(244,166,35,0.2) 60%,
+    transparent 100%);
 }
 
-/* pink grid blocks */
-.hero-block {
-  position: absolute;
-  background: rgba(230,160,160,0.18);
-  border: 1px solid rgba(220,140,140,0.2);
-  border-radius: 4px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.b1 { width: 96px;  height: 96px;  top: 96px;    left: 64px; }
-.b2 { width: 64px;  height: 64px;  top: 192px;   left: 192px; background: rgba(230,160,160,0.12); }
-.b3 { width: 128px; height: 64px;  top: 64px;    right: 128px; }
-.b4 { width: 64px;  height: 128px; top: 160px;   right: 64px; background: rgba(230,160,160,0.1); }
-.b5 { width: 64px;  height: 64px;  bottom: 160px; left: 128px; background: rgba(230,160,160,0.12); }
-.b6 { width: 96px;  height: 96px;  bottom: 96px;  right: 192px; background: rgba(230,160,160,0.1); }
-
-/* ── main content ── */
+/* ── content ── */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -66,17 +57,14 @@
 
 .hero-eyebrow {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
   font-weight: 900;
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
   color: var(--light-black);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
-.hero-eyebrow-accent {
-  color: var(--saffron);
-  text-shadow: 0 0 40px rgba(244,166,35,0.25);
-}
+.hero-eyebrow-accent { color: var(--saffron); }
 
 .hero-title {
   font-family: 'Space Grotesk', sans-serif;
@@ -88,15 +76,13 @@
   margin-bottom: 24px;
 }
 
-.hero-accent {
-  color: var(--saffron);
-}
+.hero-accent { color: var(--saffron); }
 
 .hero-desc {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--gray);
   line-height: 1.75;
-  max-width: 600px;
+  max-width: 580px;
   margin: 0 auto 36px;
 }
 
@@ -112,9 +98,9 @@
   align-items: center;
   gap: 8px;
   background: var(--light-black);
-  color: var(--white);
+  color: #fff;
   border: none;
-  padding: 15px 30px;
+  padding: 15px 32px;
   border-radius: 50px;
   font-size: 0.95rem;
   font-weight: 600;
@@ -134,8 +120,8 @@
   align-items: center;
   background: transparent;
   color: var(--light-black);
-  border: 1.5px solid #ddd;
-  padding: 15px 30px;
+  border: 1.5px solid #ccc;
+  padding: 15px 32px;
   border-radius: 50px;
   font-size: 0.95rem;
   font-weight: 600;
@@ -204,6 +190,6 @@
 }
 
 @media (max-width: 600px) {
+  .hero-grad-left, .hero-grad-right { width: 15%; }
   .hero-title { letter-spacing: -1px; }
-  .b1, .b2, .b3, .b4, .b5, .b6 { display: none; }
 }

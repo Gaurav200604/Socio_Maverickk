@@ -1,5 +1,6 @@
 .srv-section {
   background: var(--white);
+  padding-bottom: 80px;
 }
 
 .srv-layout {
@@ -82,52 +83,56 @@
   transform: translateY(-2px);
 }
 
-/* nav arrows */
-.srv-nav {
+/* bottom nav — sits in the gap between services and clients */
+.srv-bottom-nav {
   display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: center;
+  gap: 24px;
+  padding: 36px 0 0;
 }
 
 .srv-arrow {
-  width: 44px;
-  height: 44px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  border: 1.5px solid rgba(255,255,255,0.2);
-  background: transparent;
+  border: 2px solid var(--light-black);
+  background: var(--light-black);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: none;
-  transition: all 0.25s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
 }
 
 .srv-arrow svg {
-  width: 18px;
-  height: 18px;
-  color: rgba(255,255,255,0.7);
+  width: 20px;
+  height: 20px;
+  color: #fff;
   transition: color 0.2s ease;
 }
 
 .srv-arrow:hover:not(.disabled) {
   border-color: var(--saffron);
-  background: rgba(244,166,35,0.1);
-}
-
-.srv-arrow:hover:not(.disabled) svg {
-  color: var(--saffron);
+  background: var(--saffron);
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(244,166,35,0.45);
 }
 
 .srv-arrow.disabled {
-  opacity: 0.25;
+  opacity: 0.2;
   cursor: not-allowed;
+  box-shadow: none;
 }
 
 .srv-page-info {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.4);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--light-black);
+  min-width: 48px;
+  text-align: center;
 }
 
 /* ── RIGHT ── */

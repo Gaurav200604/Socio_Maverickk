@@ -1,54 +1,116 @@
+import { useEffect, useRef } from 'react';
 import './Hero.css';
 
-const tickerItems = [
-  "Start Growing Your Business",
-  "Start Growing Your Business",
-  "Start Growing Your Business",
-  "Start Growing Your Business",
-  "Start Growing Your Business",
-  "Start Growing Your Business",
-  "Start Growing Your Business",
-  "Start Growing Your Business",
+const TICKER = [
+  "Grow smarter, not harder",
+  "Grow smarter, not harder",
+  "Grow smarter, not harder",
+  "Grow smarter, not harder",
+  "Grow smarter, not harder",
+  "Grow smarter, not harder",
+  "Grow smarter, not harder",
+  "Grow smarter, not harder",
 ];
 
 function Burst() {
   return (
-    <svg className="ticker-burst" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg className="ticker-burst" viewBox="0 0 40 40" fill="none">
       {Array.from({ length: 8 }).map((_, i) => {
-        const angle = (i * 45 * Math.PI) / 180;
-        const x1 = 20 + 6  * Math.cos(angle);
-        const y1 = 20 + 6  * Math.sin(angle);
-        const x2 = 20 + 16 * Math.cos(angle);
-        const y2 = 20 + 16 * Math.sin(angle);
-        return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />;
+        const a = (i * 45 * Math.PI) / 180;
+        return <line key={i} x1={20 + 6*Math.cos(a)} y1={20 + 6*Math.sin(a)}
+          x2={20 + 16*Math.cos(a)} y2={20 + 16*Math.sin(a)}
+          stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />;
       })}
       <circle cx="20" cy="20" r="3.5" fill="currentColor" />
     </svg>
   );
 }
 
+function InteractiveGrid() {
+  const canvasRef = useRef(null);
+  const mouseRef = useRef({ x: -999, y: -999 });
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    const CELL = 48;
+    let W, H, cols, rows, raf;
+
+    const resize = () => {
+      W = canvas.width  = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+      cols = Math.ceil(W / CELL) + 1;
+      rows = Math.ceil(H / CELL) + 1;
+    };
+
+    const draw = () => {
+      ctx.clearRect(0, 0, W, H);
+      const mx = mouseRef.current.x;
+      const my = mouseRef.current.y;
+      const RADIUS = 140;
+
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const cx = c * CELL;
+          const cy = r * CELL;
+          const dist = Math.hypot(cx - mx, cy - my);
+          const t = Math.max(0, 1 - dist / RADIUS); // 0 = far, 1 = close
+
+          // base: very faint, near cursor: saffron-tinted
+          const alpha = 0.04 + t * 0.22;
+          const r_ = Math.round(244 * t + 200 * (1 - t));
+          const g_ = Math.round(166 * t + 180 * (1 - t));
+          const b_ = Math.round(35  * t + 160 * (1 - t));
+
+          ctx.fillStyle = `rgba(${r_},${g_},${b_},${alpha})`;
+          ctx.fillRect(cx + 1, cy + 1, CELL - 2, CELL - 2);
+        }
+      }
+      raf = requestAnimationFrame(draw);
+    };
+
+    const onMove = (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseRef.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+    };
+    const onLeave = () => { mouseRef.current = { x: -999, y: -999 }; };
+
+    resize();
+    window.addEventListener('resize', resize);
+    canvas.addEventListener('mousemove', onMove);
+    canvas.addEventListener('mouseleave', onLeave);
+    draw();
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener('resize', resize);
+    };
+  }, []);
+
+  return <canvas ref={canvasRef} className="hero-grid-canvas" />;
+}
+
 export default function Hero() {
-  const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
   return (
     <section id="home" className="hero">
 
-      {/* pink grid blocks */}
-      <div className="hero-block b1" />
-      <div className="hero-block b2" />
-      <div className="hero-block b3" />
-      <div className="hero-block b4" />
-      <div className="hero-block b5" />
-      <div className="hero-block b6" />
+      {/* interactive grid */}
+      <InteractiveGrid />
 
+      {/* side gradients */}
+      <div className="hero-grad-left" />
+      <div className="hero-grad-right" />
+
+      {/* content */}
       <div className="hero-content">
-        <p className="hero-eyebrow">Socio<span className="hero-eyebrow-accent"> Maverick</span></p>
+       
 
         <h1 className="hero-title">
           START GROWING<br />
-          <span className="hero-accent">YOUR BUSINESS.</span>
+          YOUR
+          <span className="hero-accent"> BUSINESS.</span>
         </h1>
 
         <p className="hero-desc">
@@ -60,9 +122,6 @@ export default function Hero() {
         <div className="hero-cta-row">
           <button className="btn-primary" onClick={() => scrollTo('contact')}>
             Start Your Journey
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
           </button>
           <button className="btn-secondary" onClick={() => scrollTo('services')}>
             Explore Services
@@ -73,11 +132,8 @@ export default function Hero() {
       {/* ticker */}
       <div className="hero-ticker">
         <div className="ticker-track">
-          {tickerItems.map((text, i) => (
-            <span key={i} className="ticker-item">
-              {text}
-              <Burst />
-            </span>
+          {TICKER.map((text, i) => (
+            <span key={i} className="ticker-item">{text}<Burst /></span>
           ))}
         </div>
       </div>

@@ -1,20 +1,49 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import logo from '../assets/socio_mavrick.png';
+import fbIcon from '../assetsocial/facebook.svg';
+import igIcon from '../assetsocial/instagram.svg';
+import liIcon from '../assetsocial/linkedin.svg';
+import twIcon from '../assetsocial/twitter.svg';
 import './Footer.css';
+
+const SERVICE_ID  = 'gaurvh3@gmail.com';
+const TEMPLATE_ID = 'template_r3340w3';
+const PUBLIC_KEY  = 'wp5rTp1v2yTMEqpZv';
 
 const services1 = ['Social Media Management','Performance Marketing','Brand Identity & Design','Content Creation','SEO & Website Growth','Influencer Marketing'];
 const services2 = ['Graphic Designing','Paid Media & Advertising','Email Marketing','Video Production','Funnels & Lead Generation','Marketing Automation'];
 const about     = ['Our Work','Who We Are','Services','Case Studies','Blogs & News','Contact Us'];
 
+const socials = [
+  { label: 'Facebook',  href: '#', icon: fbIcon },
+  { label: 'Instagram', href: '#', icon: igIcon },
+  { label: 'LinkedIn',  href: '#', icon: liIcon },
+  { label: 'Twitter',   href: '#', icon: twIcon },
+];
+
 export default function Footer() {
+  const formRef = useRef(null);
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState('');
 
   const submit = (e) => {
     e.preventDefault();
-    setSent(true);
-    setForm({ name: '', email: '', message: '' });
-    setTimeout(() => setSent(false), 4000);
+    setSending(true);
+    setError('');
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
+      .then(() => {
+        setSent(true);
+        setForm({ name: '', email: '', message: '' });
+        setSending(false);
+        setTimeout(() => setSent(false), 5000);
+      })
+      .catch(() => {
+        setError('Failed to send. Please try again.');
+        setSending(false);
+      });
   };
 
   return (
@@ -28,21 +57,19 @@ export default function Footer() {
             <p className="ft-cta-sub">Let's talk.</p>
             
           </div>
-          <form className="ft-form" onSubmit={submit}>
-            {sent && <div className="ft-success">We'll be in touch soon!</div>}
+          <form className="ft-form" ref={formRef} onSubmit={submit}>
+            {sent && <div className="ft-success">✅ Message sent! We'll be in touch soon.</div>}
+            {error && <div className="ft-error">{error}</div>}
             <div className="ft-form-row">
-              <input type="text" placeholder="Your Name" required value={form.name}
+              <input type="text" name="name" placeholder="Your Name" required value={form.name}
                 onChange={e => setForm({ ...form, name: e.target.value })} />
-              <input type="email" placeholder="Email Address" required value={form.email}
+              <input type="email" name="email" placeholder="Email Address" required value={form.email}
                 onChange={e => setForm({ ...form, email: e.target.value })} />
             </div>
-            <textarea placeholder="Tell us about your project..." rows={4} required value={form.message}
+            <textarea name="message" placeholder="Tell us about your project..." rows={4} required value={form.message}
               onChange={e => setForm({ ...form, message: e.target.value })} />
-            <button type="submit" className="ft-submit">
-              Send Message
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" />
-              </svg>
+            <button type="submit" className="ft-submit" disabled={sending}>
+              {sending ? 'Sending...' : <>Send Message <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" /></svg></>}
             </button>
           </form>
         </div>
@@ -52,6 +79,7 @@ export default function Footer() {
       <div className="ft-main">
         <div className="ft-brand">
           <img src={logo} alt="Socio Maverick" className="ft-logo" />
+          <p className="ft-brand-name">Socio<span>_Maverick</span></p>
           <p className="ft-address">New Delhi, India — Remote Friendly</p>
           <p className="ft-copy-small">© {new Date().getFullYear()} Socio_Maverick. All Rights Reserved.</p>
           <div className="ft-contacts">
@@ -59,8 +87,10 @@ export default function Footer() {
             <a href="mailto:hello@sociomaverick.com" className="ft-contact-link">✉️ hello@sociomaverick.com</a>
           </div>
           <div className="ft-socials">
-            {['FB','IG','IN','TW','YT'].map(s => (
-              <a key={s} href="#" className="ft-social" aria-label={s} data-hover>{s}</a>
+            {socials.map(s => (
+              <a key={s.label} href={s.href} className="ft-social" aria-label={s.label} data-hover>
+                <img src={s.icon} alt={s.label} />
+              </a>
             ))}
           </div>
         </div>
@@ -89,11 +119,11 @@ export default function Footer() {
           <a href="#">Cancellation &amp; Refund</a>
           <a href="#">Terms and Conditions</a>
         </div>
-        <div className="ft-badges">
+        {/* <div className="ft-badges">
           <span className="ft-badge">Google Partner</span>
           <span className="ft-badge">Meta Business Partner</span>
           <span className="ft-badge">⭐ 4.9 Google Reviews</span>
-        </div>
+        </div> */}
       </div>
 
     </footer>
