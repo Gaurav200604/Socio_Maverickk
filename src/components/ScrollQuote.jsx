@@ -3,7 +3,7 @@ import './ScrollQuote.css';
 
 const QUOTE = "Marketing is the art of reaching the right person at the right time with the right message, while always putting the customer at the heart of every decision.";
 
-const CYCLE_WORDS = ['customer', 'audience', 'community', 'brand'];
+const CYCLE_WORDS = ['customer', 'audience', 'community'];
 
 export default function ScrollQuote() {
   const sectionRef = useRef(null);

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=Playfair+Display:ital,wght@1,400;1,700&display=swap');
 
 * {
   margin: 0;
@@ -23,11 +23,33 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Fraunces', 'Inter', serif;
   background-color: var(--white);
   color: var(--light-black);
   overflow-x: hidden;
   cursor: none;
 }
 
+/* Global heading font override — Fraunces serif */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Fraunces', serif;
+}
+
 a, button, [data-hover] { cursor: none; }
+
+/* Keep footer using sans-serif */
+.ft-footer h1, .ft-footer h2, .ft-footer h3,
+.ft-footer h4, .ft-footer h5, .ft-footer h6 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* All saffron accent text — Playfair Display italic lowercase */
+.accent, .srv-accent, .ws-accent, .hero-accent,
+.clients-heading .h-accent, .h-accent, .ws-header-accent,
+.ft-brand-accent, .cs-accent, .sq-accent,
+.clients-title span {
+  font-family: 'Playfair Display', serif !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  text-transform: lowercase !important;
+}

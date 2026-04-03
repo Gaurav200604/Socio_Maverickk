@@ -67,7 +67,7 @@
 .hero-eyebrow-accent { color: var(--saffron); }
 
 .hero-title {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Fraunces', serif;
   font-size: clamp(2.8rem, 7vw, 6rem);
   font-weight: 900;
   color: var(--light-black);
@@ -76,7 +76,10 @@
   margin-bottom: 24px;
 }
 
-.hero-accent { color: var(--saffron); }
+.hero-accent {
+  color: var(--saffron);
+  font-style: italic;
+}
 
 .hero-desc {
   font-size: 1rem;
