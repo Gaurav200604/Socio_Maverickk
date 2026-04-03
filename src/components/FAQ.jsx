@@ -7,10 +7,10 @@ const TEMPLATE_ID = 'template_r3340w3';
 const PUBLIC_KEY  = 'wp5rTp1v2yTMEqpZv';
 
 const categories = [
-  { icon: '💡', label: 'General Question' },
-  { icon: '💳', label: 'Payment & Billing' },
-  { icon: '🔒', label: 'Safety & Security' },
-  { icon: '🚀', label: 'Account & Update' },
+  'General Question',
+  'Payment & Billing',
+  'Safety & Security',
+  'Account & Update',
 ];
 
 const faqsByCategory = {
@@ -19,24 +19,28 @@ const faqsByCategory = {
     { q: 'How long does it take to see results?', a: 'Most clients see measurable improvements within 4–8 weeks. SEO takes 3–6 months for significant organic growth, while paid campaigns can deliver results within days of launch.' },
     { q: 'Do you work with startups or only established brands?', a: "We work with both. Whether you're launching your first brand or scaling an established business, we tailor our strategy to your stage, goals, and budget." },
     { q: 'Can I hire you for just one service?', a: "Absolutely. You can engage us for a single service like social media management or a one-time brand identity project. We're flexible and work around your needs." },
+    { q: 'What makes Socio_Maverick different from other agencies?', a: 'We combine data-driven strategy with bold creative execution. Every decision is backed by research, and every campaign is built around your specific business goals.' },
   ],
   1: [
     { q: 'What payment methods do you accept?', a: 'We accept bank transfers, UPI, credit/debit cards, and international wire transfers. All payments are processed securely.' },
     { q: 'Do you offer refunds?', a: 'We offer a pro-rated refund if you cancel within the first 7 days of a new billing cycle. After that, the month is non-refundable.' },
-    { q: 'Is there a long-term contract?', a: 'No lock-in contracts. We work on monthly retainers and you can cancel with 30 days notice. We believe in earning your business every month.' },
-    { q: 'What is your pricing model?', a: "We offer flexible monthly retainers and project-based pricing depending on scope. Book a free consultation and we'll put together a custom proposal for you." },
+    { q: 'Is there a long-term contract?', a: 'No lock-in contracts. We work on monthly retainers and you can cancel with 30 days notice.' },
+    { q: 'What is your pricing model?', a: "We offer flexible monthly retainers and project-based pricing. Book a free consultation and we'll put together a custom proposal for you." },
+    { q: 'Are there any hidden charges?', a: 'None. Everything is outlined clearly in your proposal before we begin. No surprises.' },
   ],
   2: [
-    { q: 'How do you protect our brand data?', a: 'All client data is stored securely with AES-256 encryption. We sign NDAs with every client and never share your data with third parties.' },
-    { q: 'Who has access to our social media accounts?', a: 'Only the assigned team members working on your account have access. We use role-based permissions and recommend using a dedicated business account.' },
-    { q: 'What happens to our data if we stop working together?', a: 'All your data, content, and account access is returned to you immediately upon contract end. We retain nothing after offboarding.' },
-    { q: 'Do you follow platform advertising policies?', a: 'Yes, strictly. We follow all Meta, Google, and platform-specific advertising guidelines to ensure your accounts remain in good standing.' },
+    { q: 'How do you protect our brand data?', a: 'All client data is stored securely. We sign NDAs with every client and never share your data with third parties.' },
+    { q: 'Who has access to our social media accounts?', a: 'Only the assigned team members working on your account have access. We use role-based permissions.' },
+    { q: 'What happens to our data if we stop working together?', a: 'All your data, content, and account access is returned to you immediately upon contract end.' },
+    { q: 'Do you follow platform advertising policies?', a: 'Yes, strictly. We follow all Meta, Google, and platform-specific advertising guidelines.' },
+    { q: 'Is our business strategy kept confidential?', a: 'Absolutely. We treat all client information with complete confidentiality and professionalism.' },
   ],
   3: [
-    { q: 'How do I get started with Socio_Maverick?', a: "Simply fill out the contact form or book a free discovery call. We'll understand your goals and send a custom proposal within 48 hours." },
-    { q: 'How do I track the progress of my campaigns?', a: 'You get access to a live dashboard and receive detailed monthly reports covering all KPIs — reach, engagement, leads, conversions, and ROAS.' },
-    { q: 'Can I request changes to the strategy?', a: 'Absolutely. We hold monthly strategy reviews and you can request adjustments anytime. Your feedback is built into our workflow.' },
-    { q: 'Do you provide a dedicated account manager?', a: 'Yes. Every client gets a dedicated account manager as their single point of contact for all communication, updates, and approvals.' },
+    { q: 'How do I get started with Socio_Maverick?', a: "Fill out the contact form or book a free discovery call. We'll send a custom proposal within 48 hours." },
+    { q: 'How do I track the progress of my campaigns?', a: 'You get detailed monthly reports covering all KPIs — reach, engagement, leads, conversions, and ROAS.' },
+    { q: 'Can I request changes to the strategy?', a: 'Absolutely. We hold monthly strategy reviews and you can request adjustments anytime.' },
+    { q: 'Do you provide a dedicated account manager?', a: 'Yes. Every client gets a dedicated account manager as their single point of contact.' },
+    { q: 'How quickly do you respond to queries?', a: 'We respond to all client queries within 4 business hours during working days.' },
   ],
 };
 
@@ -56,52 +60,36 @@ export default function FAQ() {
     setSending(true);
     setError('');
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, faqFormRef.current, PUBLIC_KEY)
-      .then(() => {
-        setSent(true);
-        setForm({ name: '', email: '', message: '' });
-        setSending(false);
-        setTimeout(() => setSent(false), 5000);
-      })
-      .catch(() => {
-        setError('Failed to send. Please try again.');
-        setSending(false);
-      });
+      .then(() => { setSent(true); setForm({ name:'',email:'',message:'' }); setSending(false); setTimeout(()=>setSent(false),5000); })
+      .catch(() => { setError('Failed to send. Please try again.'); setSending(false); });
   };
-
-  const currentFaqs = faqsByCategory[activeTab];
 
   return (
     <section className="faq-section">
+      <div className="faq-container">
 
-      {/* saffron header */}
-      <div className="faq-hero">
-        <h2 className="faq-hero-title">Frequently Asked <span>Questions</span></h2>
-        <p className="faq-hero-sub">
-          Everything you need to know about working with Socio_Maverick.
-          Can't find an answer? Reach out below.
-        </p>
-      </div>
+        {/* heading */}
+        <div className="faq-top">
+          <h2 className="faq-main-title">Faq's</h2>
 
-      <div className="faq-body">
-
-        {/* category tabs */}
-        <div className="faq-tabs">
-          {categories.map((c, i) => (
-            <button
-              key={i}
-              className={`faq-tab ${activeTab === i ? 'active' : ''}`}
-              onClick={() => handleTabChange(i)}
-              data-hover
-            >
-              <span className="faq-tab-icon">{c.icon}</span>
-              <span className="faq-tab-label">{c.label}</span>
-            </button>
-          ))}
+          {/* tab pills */}
+          <div className="faq-pills">
+            {categories.map((c, i) => (
+              <button
+                key={i}
+                className={`faq-pill ${activeTab === i ? 'active' : ''}`}
+                onClick={() => handleTabChange(i)}
+                data-hover
+              >
+                {c}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* accordion — filtered by active tab */}
+        {/* accordion */}
         <div className="faq-list">
-          {currentFaqs.map((item, i) => (
+          {faqsByCategory[activeTab].map((item, i) => (
             <div
               key={`${activeTab}-${i}`}
               className={`faq-item ${open === i ? 'open' : ''}`}
@@ -109,12 +97,8 @@ export default function FAQ() {
               data-hover
             >
               <div className="faq-question">
+                <span className="faq-plus">{open === i ? '×' : '+'}</span>
                 <span>{item.q}</span>
-                <div className="faq-icon-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M6 9l6 6 6-6" />
-                  </svg>
-                </div>
               </div>
               <div className="faq-answer">
                 <div className="faq-answer-inner">
@@ -132,13 +116,10 @@ export default function FAQ() {
             {sent && <div className="faq-success">✅ Message sent! We'll be in touch soon.</div>}
             {error && <div className="faq-error">{error}</div>}
             <div className="faq-form-row">
-              <input type="text" name="name" placeholder="Full Name" required
-                value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} />
-              <input type="email" name="email" placeholder="Email Address" required
-                value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} />
+              <input type="text" name="name" placeholder="Full Name" required value={form.name} onChange={e=>setForm({...form,name:e.target.value})} />
+              <input type="email" name="email" placeholder="Email Address" required value={form.email} onChange={e=>setForm({...form,email:e.target.value})} />
             </div>
-            <textarea name="message" placeholder="Your Message..." rows={5} required
-              value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} />
+            <textarea name="message" placeholder="Your Message..." rows={4} required value={form.message} onChange={e=>setForm({...form,message:e.target.value})} />
             <button type="submit" className="faq-submit" disabled={sending}>
               {sending ? 'Sending...' : 'Send Message'}
             </button>

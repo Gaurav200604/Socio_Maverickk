@@ -1,4 +1,4 @@
-.ft-footer { background: #0d0d0d; color: #fff; }
+.ft-footer { background: #0d0d0d; color: #fff; min-height: 100vh; display: flex; flex-direction: column; }
 
 /* CTA band */
 .ft-cta-band { border-bottom: 1px solid rgba(255,255,255,0.07); padding: 80px 0; background: var(--light-black); }
@@ -35,8 +35,8 @@
 
 /* main grid */
 .ft-main { max-width: 1200px; margin: 0 auto; padding: 64px 48px; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; border-bottom: 1px solid rgba(255,255,255,0.07); }
-.ft-logo { height: 38px; width: auto; object-fit: contain; display: block; margin-bottom: 8px; filter: brightness(0) invert(1); }
-.ft-brand-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: 16px; letter-spacing: -0.3px; }
+.ft-logo { height: 56px; width: auto; object-fit: contain; display: block; margin-bottom: 10px; filter: brightness(0) invert(1); }
+.ft-brand-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.6rem; font-weight: 900; color: #fff; margin-bottom: 16px; letter-spacing: -0.5px; }
 .ft-brand-name span { color: var(--saffron); }
 .ft-address { font-size: 1rem; color: rgba(255,255,255,0.4); margin-bottom: 6px; line-height: 1.6; }
 .ft-copy-small { font-size: 0.9rem; color: rgba(255,255,255,0.25); margin-bottom: 24px; line-height: 1.7; }
