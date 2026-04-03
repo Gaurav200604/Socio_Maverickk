@@ -164,7 +164,7 @@
 /* ── image side — fixed dimensions ── */
 .ws-img-wrap {
   width: 100%;
-  height: 360px;
+  height: 480px;
   display: flex;
   align-items: center;
   justify-content: center;

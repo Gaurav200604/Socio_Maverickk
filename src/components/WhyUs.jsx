@@ -2,29 +2,54 @@ import { useState, useEffect } from 'react';
 import img1 from '../assetwhy/1.png';
 import img2 from '../assetwhy/2.png';
 import img3 from '../assetwhy/3.png';
+import img4 from '../assetwhy/4.png';
+import img5 from '../assetwhy/5.png';
+import img6 from '../assetwhy/6.png';
+
 import './WhyUs.css';
 
 const slides = [
   {
     img: img1,
-    tag: 'Why Choose Us',
-    title: 'Get Result-Driven\nCampaigns focusing on\nyour Business Goals.',
-    accent: 'Result-Driven',
-    desc: 'We craft data-backed strategies that align with your business objectives and deliver measurable growth.',
+    tag: 'Brand Presence',
+    title: 'Get a Unified and\nImpactful Brand Presence\nacross all Channels.',
+    accent: 'Impactful Brand Presence',
+    desc: 'We build a consistent, powerful brand identity across every media platform so your audience recognises you everywhere.',
   },
   {
     img: img2,
-    tag: 'Our Approach',
-    title: 'Creative Content\nthat Stops the Scroll\nand Drives Action.',
-    accent: 'Stops the Scroll',
-    desc: 'From reels to carousels, our creative team produces content that captures attention and converts audiences.',
+    tag: 'Custom Strategy',
+    title: 'Get Customized Marketing\nStrategies Specially Designed\nfor your Business Growth.',
+    accent: 'Customized Marketing',
+    desc: 'No templates, no shortcuts. Every strategy is built from scratch around your unique goals, audience, and market.',
   },
   {
     img: img3,
-    tag: 'Our Promise',
-    title: 'Transparent Reporting\nwith Real Numbers\nthat Matter.',
-    accent: 'Real Numbers',
-    desc: 'Every campaign comes with clear, honest reporting so you always know exactly where your investment is going.',
+    tag: 'Conversion',
+    title: 'Convert your Visitors\nto Leads into Customers\nand Boost your ROI.',
+    accent: 'Boost your ROI',
+    desc: 'We build full-funnel strategies that guide your audience from first click to loyal customer — and keep them coming back.',
+  },
+  {
+    img: img4,
+    tag: 'Campaigns',
+    title: 'Get Result-Driven\nCampaigns focusing on\nyour Business Goals.',
+    accent: 'Result-Driven',
+    desc: 'Every campaign is backed by data and built around your specific business objectives for maximum measurable impact.',
+  },
+  {
+    img: img5,
+    tag: '360° Strategy',
+    title: 'Elevate Your Brand\nDigitally with 360°\nMaverick Strategies.',
+    accent: '360°',
+    desc: 'From social media to SEO to paid ads — we cover every digital touchpoint so you never miss an opportunity to grow.',
+  },
+  {
+    img: img6,
+    tag: 'SEO',
+    title: 'Harness the Power of\nSearch Engines with our\nSEO-Optimized Structures.',
+    accent: 'SEO-Optimized',
+    desc: 'We build technically sound, content-rich website structures that rank higher, drive organic traffic, and convert visitors.',
   },
 ];
 

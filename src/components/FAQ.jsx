@@ -1,10 +1,5 @@
-import { useState, useRef } from 'react';
-import emailjs from '@emailjs/browser';
+import { useState } from 'react';
 import './FAQ.css';
-
-const SERVICE_ID  = 'gaurvh3@gmail.com';
-const TEMPLATE_ID = 'template_r3340w3';
-const PUBLIC_KEY  = 'wp5rTp1v2yTMEqpZv';
 
 const categories = [
   'General Question',
@@ -47,22 +42,8 @@ const faqsByCategory = {
 export default function FAQ() {
   const [open, setOpen] = useState(null);
   const [activeTab, setActiveTab] = useState(0);
-  const faqFormRef = useRef(null);
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [sent, setSent] = useState(false);
-  const [sending, setSending] = useState(false);
-  const [error, setError] = useState('');
 
   const handleTabChange = (i) => { setActiveTab(i); setOpen(null); };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSending(true);
-    setError('');
-    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, faqFormRef.current, PUBLIC_KEY)
-      .then(() => { setSent(true); setForm({ name:'',email:'',message:'' }); setSending(false); setTimeout(()=>setSent(false),5000); })
-      .catch(() => { setError('Failed to send. Please try again.'); setSending(false); });
-  };
 
   return (
     <section className="faq-section">
@@ -107,23 +88,6 @@ export default function FAQ() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* contact form */}
-        <div className="faq-contact">
-          <h3 className="faq-contact-title">More Questions? Contact Us...</h3>
-          <form className="faq-form" ref={faqFormRef} onSubmit={handleSubmit}>
-            {sent && <div className="faq-success">✅ Message sent! We'll be in touch soon.</div>}
-            {error && <div className="faq-error">{error}</div>}
-            <div className="faq-form-row">
-              <input type="text" name="name" placeholder="Full Name" required value={form.name} onChange={e=>setForm({...form,name:e.target.value})} />
-              <input type="email" name="email" placeholder="Email Address" required value={form.email} onChange={e=>setForm({...form,email:e.target.value})} />
-            </div>
-            <textarea name="message" placeholder="Your Message..." rows={4} required value={form.message} onChange={e=>setForm({...form,message:e.target.value})} />
-            <button type="submit" className="faq-submit" disabled={sending}>
-              {sending ? 'Sending...' : 'Send Message'}
-            </button>
-          </form>
         </div>
 
       </div>

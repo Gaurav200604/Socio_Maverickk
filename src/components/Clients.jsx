@@ -6,9 +6,11 @@ import bttpl   from '../assetcompany/Beamer_Trades_and_Technologies__1_-removebg
 import nextias from '../assetcompany/nxtias-removebg-preview.png';
 import chem    from '../assetcompany/chem academy.webp';
 import extra   from '../assetcompany/377551757_702749201872063_6254657345124592206_n.jpg.jpeg';
+import img6    from '../assetcompany/6.png';
+import img7    from '../assetcompany/7.webp';
 
-const row1 = [miranda, kmc, rajat, bttpl, nextias, chem, extra];
-const row2 = [bttpl, nextias, chem, extra, miranda, kmc, rajat];
+const row1 = [miranda, kmc, rajat, bttpl, nextias, chem, extra, img6, img7];
+const row2 = [bttpl, nextias, chem, extra, miranda, kmc, rajat, img6, img7];
 
 function MarqueeRow({ items, direction }) {
   const repeated = [...items, ...items, ...items, ...items];
@@ -17,13 +19,11 @@ function MarqueeRow({ items, direction }) {
       <div className="marquee-track">
         {repeated.map((src, i) => (
           <div key={i} className="m-logo-wrap" data-hover>
-            <div className="m-logo-card">
-              <img
-                src={src}
-                alt={`client-${i}`}
-                className={`m-logo-img ${src === nextias || src === bttpl ? 'm-logo-large' : ''}`}
-              />
-            </div>
+            <img
+              src={src}
+              alt={`client-${i}`}
+              className={`m-logo-img ${src === nextias || src === bttpl ? 'm-logo-large' : ''}`}
+            />
           </div>
         ))}
       </div>

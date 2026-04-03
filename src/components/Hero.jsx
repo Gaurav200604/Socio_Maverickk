@@ -1,16 +1,10 @@
 import { useEffect, useRef } from 'react';
 import './Hero.css';
 
-const TICKER = [
-  "Grow smarter, not harder",
-  "Grow smarter, not harder",
-  "Grow smarter, not harder",
-  "Grow smarter, not harder",
-  "Grow smarter, not harder",
-  "Grow smarter, not harder",
-  "Grow smarter, not harder",
-  "Grow smarter, not harder",
-];
+const TICKER = ['REPEAT', 'DESIGN', 'STRATEGY', 'IMPACT',
+                'REPEAT', 'DESIGN', 'STRATEGY', 'IMPACT',
+                'REPEAT', 'DESIGN', 'STRATEGY', 'IMPACT',
+                'REPEAT', 'DESIGN', 'STRATEGY', 'IMPACT'];
 
 function Burst() {
   return (
@@ -133,7 +127,7 @@ export default function Hero() {
       <div className="hero-ticker">
         <div className="ticker-track">
           {TICKER.map((text, i) => (
-            <span key={i} className="ticker-item">{text}<Burst /></span>
+            <span key={i} className="ticker-item">{text}<span className="ticker-sep">·</span></span>
           ))}
         </div>
       </div>
