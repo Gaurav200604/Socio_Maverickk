@@ -17,7 +17,7 @@ const company = [
   { label: 'About Us',       href: '#' },
   { label: 'Why Choose Us?', href: '#why' },
   { label: 'Services',       href: '#services' },
-  { label: 'Contact Us',     href: '#contact' },
+  { label: 'Contact Us',     href: '/contact' },
   { label: 'Blogs',          href: '#' },
 ];
 
@@ -37,9 +37,9 @@ export default function Footer() {
         <div className="ft-brand-col">
           <img src={logo} alt="Socio Maverick" className="ft-brand-logo" />
           <p className="ft-brand-tagline">
-            Socio <span className="ft-brand-accent">Maverick</span> Pvt. Ltd.
+            Socio <span className="ft-brand-accent brand-name">Maverick</span> Pvt. Ltd.
           </p>
-          <a href="#contact" className="ft-contact-btn">CONTACT US</a>
+          <a href="/contact" className="ft-contact-btn">CONTACT US</a>
           <div className="ft-address-block">
             <p className="ft-address-label">OFFICE ADDRESS</p>
             <p className="ft-address-text">
@@ -69,7 +69,6 @@ export default function Footer() {
           <ul className="ft-service-list">
             {company.map(c => (
               <li key={c.label}>
-                <span className="ft-bullet">✕</span>
                 <a href={c.href}>{c.label}</a>
               </li>
             ))}
@@ -85,7 +84,6 @@ export default function Footer() {
           <ul className="ft-service-list">
             {services.map(s => (
               <li key={s}>
-                <span className="ft-bullet">✕</span>
                 <a href="#services">{s}</a>
               </li>
             ))}
@@ -94,9 +92,9 @@ export default function Footer() {
 
       </div>
 
-      <div className="ft-bottom-bar">
+      {/* <div className="ft-bottom-bar">
         <p>All Rights Reserved — {new Date().getFullYear()}</p>
-      </div>
+      </div> */}
     </footer>
   );
 }

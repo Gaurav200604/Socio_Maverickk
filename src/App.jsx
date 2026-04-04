@@ -7,7 +7,6 @@ import ScrollQuote from './components/ScrollQuote';
 import Services from './components/Services';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
-import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import './App.css';
 
@@ -20,17 +19,15 @@ export default function App() {
         <Hero />
       </div>
       <div className="content-over">
-        <div id="services">
-          <Services />
-        </div>
+        <Services />
         <ScrollQuote />
         <WhyUs />
         <Clients />
         <Testimonials />
         <FAQ />
-        <ContactSection />
         <Footer />
       </div>
     </>
   );
 }
+

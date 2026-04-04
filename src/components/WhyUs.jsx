@@ -26,7 +26,7 @@ const slides = [
   {
     img: img3,
     tag: 'Conversion',
-    title: 'Convert your Visitors\nto Leads into Customers\nand Boost your ROI.',
+    title: 'Convert your Visitors\nto Leads into Customers\nand Boost your ROI',
     accent: 'Boost your ROI',
     desc: 'We build full-funnel strategies that guide your audience from first click to loyal customer — and keep them coming back.',
   },
@@ -74,10 +74,10 @@ export default function WhyUs() {
   const titleParts = slide.title.split(slide.accent);
 
   return (
-    <section className="ws-section">
+    <section id="why" className="ws-section">
       <div className="ws-header">
         <h2 className="ws-header-title">
-          Why <span className="ws-header-accent">Socio_Maverick</span>?
+          Why <span className="ws-header-accent brand-name">Socio Maverick</span><span className="q-mark">?</span>
         </h2>
         <p className="ws-header-sub">
           We're not just another agency — we're your growth partner, obsessed with results.

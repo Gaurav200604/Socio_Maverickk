@@ -8,9 +8,9 @@
 
 :root {
   --white: #ffffff;
-  --saffron: #F4A623;
-  --saffron-light: #F7BC5A;
-  --saffron-dark: #D4891A;
+  --saffron: #FF8C00;
+  --saffron-light: #FFA333;
+  --saffron-dark: #E07800;
   --light-black: #1a1a1a;
   --dark: #111111;
   --gray: #6b7280;
@@ -20,6 +20,13 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 92px;
+}
+
+section[id],
+div[id],
+footer[id] {
+  scroll-margin-top: 92px;
 }
 
 body {
@@ -43,7 +50,7 @@ a, button, [data-hover] { cursor: none; }
   font-family: 'Space Grotesk', sans-serif;
 }
 
-/* All saffron accent text — Playfair Display italic lowercase */
+/* All saffron accent text — Playfair Display italic */
 .accent, .srv-accent, .ws-accent, .hero-accent,
 .clients-heading .h-accent, .h-accent, .ws-header-accent,
 .ft-brand-accent, .cs-accent, .sq-accent,
@@ -51,5 +58,21 @@ a, button, [data-hover] { cursor: none; }
   font-family: 'Playfair Display', serif !important;
   font-style: italic !important;
   font-weight: 400 !important;
-  text-transform: lowercase !important;
+}
+
+/* Brand name — never italic */
+.brand-name {
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+}
+
+/* Question mark styling — grey with spacing */
+.faq-question .q-mark,
+.ws-header-title .q-mark {
+  color: var(--gray);
+  margin-left: 4px;
+  font-style: normal !important;
+  font-family: 'Barlow Condensed', sans-serif !important;
 }

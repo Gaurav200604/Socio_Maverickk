@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './Hero.css';
 
 const TICKER = ['REPEAT', 'DESIGN', 'STRATEGY', 'IMPACT',
@@ -84,8 +84,23 @@ function InteractiveGrid() {
   return <canvas ref={canvasRef} className="hero-grid-canvas" />;
 }
 
+const CYCLE_WORDS = ['Vision', 'Brand', 'Dream','Bussiness','Growth'];
+
 export default function Hero() {
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  const [wordIdx, setWordIdx] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const t = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setWordIdx(i => (i + 1) % CYCLE_WORDS.length);
+        setVisible(true);
+      }, 400);
+    }, 2800);
+    return () => clearInterval(t);
+  }, []);
 
   return (
     <section id="home" className="hero">
@@ -93,18 +108,15 @@ export default function Hero() {
       {/* interactive grid */}
       <InteractiveGrid />
 
-      {/* side gradients */}
-      <div className="hero-grad-left" />
-      <div className="hero-grad-right" />
-
       {/* content */}
       <div className="hero-content">
        
 
         <h1 className="hero-title">
           START GROWING<br />
-          YOUR
-          <span className="hero-accent"> BUSINESS.</span>
+          YOUR <span
+            className={`hero-accent hero-cycle-word ${visible ? 'cycle-in' : 'cycle-out'}`}
+          >{CYCLE_WORDS[wordIdx]}</span><span className="hero-dot">.</span>
         </h1>
 
         <p className="hero-desc">

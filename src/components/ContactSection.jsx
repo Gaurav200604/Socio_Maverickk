@@ -37,7 +37,7 @@ export default function ContactSection() {
           <h2 className="cs-title">
             India's Top<br />
             Digital Marketing<br />
-            <span className="cs-accent">Agency</span>
+            <span className="cs-accent">an Advertising Agency</span>
           </h2>
           <p className="cs-desc">
             Armed with data-driven strategies and a sharp creative mindset, we tackle the toughest
@@ -53,7 +53,7 @@ export default function ContactSection() {
               <span className="cs-stat-label">Avg. Growth Rate</span>
             </div>
             <div className="cs-stat">
-              <span className="cs-stat-num">98%</span>
+              <span className="cs-stat-num">94%</span>
               <span className="cs-stat-label">Client Satisfaction</span>
             </div>
           </div>

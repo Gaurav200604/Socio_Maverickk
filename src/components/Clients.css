@@ -49,7 +49,7 @@
 .clients-subtitle {
   text-align: center;
   font-size: 0.85rem;
-  color: rgba(0,0,0,0.35);
+  color: rgba(0,0,0,0.65);
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-bottom: 48px;
@@ -150,4 +150,14 @@
 .m-logo-large {
   height: 140px !important;
   max-width: calc(25vw - 20px) !important;
+}
+
+.m-logo-livesmart {
+  height: 150px !important;
+  max-width: calc(25vw - 12px) !important;
+}
+
+.m-logo-bttpl {
+  height: 200px !important;
+  max-width: calc(25vw) !important;
 }

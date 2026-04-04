@@ -5,17 +5,17 @@ const col1 = [
   {
     stars: 5,
     text: "Socio_Maverick completely transformed our online presence. Within 6 weeks we saw a 3x increase in inbound leads — strangers finding us, booking calls, and converting without us chasing them.",
-    name: "Priya Sharma", company: "Bloom Skincare", initial: "P",
+    name: "Ashish Shukla", company: "BTTPL", initial: "A",
   },
   {
     stars: 5,
     text: "What I liked most was that they didn't just 'design something pretty'. They kept asking why someone would click, why they'd trust us. It felt like working with a team that actually cares about the business side.",
-    name: "Vikram Singh", company: "Dailey Demolition", initial: "V",
+    name: "Umanshi Chaudhary", company: "Miranda House", initial: "U",
   },
   {
     stars: 5,
     text: "Our brand had no clear identity online. Socio_Maverick gave us a voice, a look, and a strategy that made sense for our audience. Six months in, we're the go-to name in our niche locally.",
-    name: "Sneha Patel", company: "Urban Roots Café", initial: "S",
+    name: "Rajat Goyal", company: "Rajat Caters", initial: "R",
   },
 ];
 
@@ -23,17 +23,17 @@ const col2 = [
   {
     stars: 5,
     text: "We already had an online presence but growth had hit a ceiling. Most sign-ups came from loyal followers. Socio_Maverick broke that ceiling — within 3 months we were reaching entirely new audiences.",
-    name: "Rahul Mehta", company: "TechNova Solutions", initial: "R",
+    name: "Nikhil Singh", company: "KMC", initial: "N",
   },
   {
     stars: 5,
     text: "I was skeptical about paid ads — felt like burning money. Their Meta campaign delivered a 4.2x ROAS in the first month. The data they track and report is incredibly transparent.",
-    name: "Arjun Nair", company: "CloudStack India", initial: "A",
+    name: "Munish Dutt", company: "Livsmart", initial: "L",
   },
   {
     stars: 5,
     text: "The SEO work alone brought in 40% more organic traffic. We went from page 4 to page 1 for our main keywords in under 90 days. Absolutely worth every rupee.",
-    name: "Kavya Reddy", company: "LegalEase India", initial: "K",
+    name: "Dr Geeta Bhutt", company: "NCWEB", initial: "N",
   },
 ];
 
@@ -41,7 +41,7 @@ const col3 = [
   {
     stars: 5,
     text: "The content they create is genuinely scroll-stopping. Our Instagram engagement went from 1% to over 8% in two months. People actually comment, share, and DM us now — that never happened before.",
-    name: "Ananya Kapoor", company: "Artisan Bakes", initial: "A",
+    name: "Pradeep Sir", company: "Chem Academy", initial: "P",
   },
   {
     stars: 5,

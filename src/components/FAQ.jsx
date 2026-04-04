@@ -10,32 +10,32 @@ const categories = [
 
 const faqsByCategory = {
   0: [
-    { q: 'What services does Socio_Maverick offer?', a: 'We offer end-to-end digital marketing — social media management, performance marketing, brand identity & design, content creation, SEO, and influencer marketing.' },
-    { q: 'How long does it take to see results?', a: 'Most clients see measurable improvements within 4–8 weeks. SEO takes 3–6 months for significant organic growth, while paid campaigns can deliver results within days of launch.' },
-    { q: 'Do you work with startups or only established brands?', a: "We work with both. Whether you're launching your first brand or scaling an established business, we tailor our strategy to your stage, goals, and budget." },
-    { q: 'Can I hire you for just one service?', a: "Absolutely. You can engage us for a single service like social media management or a one-time brand identity project. We're flexible and work around your needs." },
-    { q: 'What makes Socio_Maverick different from other agencies?', a: 'We combine data-driven strategy with bold creative execution. Every decision is backed by research, and every campaign is built around your specific business goals.' },
+    { q: 'What services does Socio Maverick Offer ?', a: 'We offer end-to-end Digital Marketing — Social Media Management, Performance Marketing, Brand Identity & Design, Content Creation, SEO, and Influencer Marketing.' },
+    { q: 'How long does it take to see Results ?', a: 'Most Clients see Measurable Improvements within 4–8 weeks. SEO Takes 3–6 Months for Significant Organic Growth, while Paid Campaigns can Deliver Results within Days of Launch.' },
+    { q: 'Do you work with Startups or only Established Brands ?', a: "We Work with Both. Whether you're Launching your First Brand or Scaling an Established Business, we Tailor our Strategy to your Stage, Goals, and Budget." },
+    { q: 'Can I Hire you for just one Service?', a: "Absolutely. You can Engage Us for a Single Service like Social Media Management or a One-Time Brand Identity Project. We're Flexible and Work Around your Needs." },
+    { q: 'What makes Socio Maverick different from Other Agencies ?', a: 'We Combine Data-Driven Strategy with Bold Creative Execution. Every Decision is Backed by Research, and Every Campaign is Built Around your Specific Business Goals.' },
   ],
   1: [
-    { q: 'What payment methods do you accept?', a: 'We accept bank transfers, UPI, credit/debit cards, and international wire transfers. All payments are processed securely.' },
-    { q: 'Do you offer refunds?', a: 'We offer a pro-rated refund if you cancel within the first 7 days of a new billing cycle. After that, the month is non-refundable.' },
-    { q: 'Is there a long-term contract?', a: 'No lock-in contracts. We work on monthly retainers and you can cancel with 30 days notice.' },
-    { q: 'What is your pricing model?', a: "We offer flexible monthly retainers and project-based pricing. Book a free consultation and we'll put together a custom proposal for you." },
-    { q: 'Are there any hidden charges?', a: 'None. Everything is outlined clearly in your proposal before we begin. No surprises.' },
+    { q: 'What Payment methods do you Accept ?', a: 'We Accept Bank Transfers, UPI, Credit/Debit Cards, and International Wire Transfers. All Payments are Processed Securely.' },
+    { q: 'Do you Offer Refunds ?', a: 'We Offer a Pro-Rated Refund if you Cancel Within The First 7 Days of A New Billing Cycle. After That, The Month is Non-Refundable.' },
+    { q: 'Is there a Long-Term Contract?', a: 'No Lock-In Contracts. We Work on Monthly Retainers and You Can Cancel with 30 Days Notice.' },
+    { q: 'What is your Pricing Model?', a: "We Offer Flexible Monthly Retainers and Project-Based Pricing. Book a Free Consultation and We'll Put Together a Custom Proposal for you." },
+    { q: 'Are There any Hidden Charges?', a: 'None. Everything is Outlined Clearly in your Proposal Before we Begin. No Surprises.' },
   ],
   2: [
-    { q: 'How do you protect our brand data?', a: 'All client data is stored securely. We sign NDAs with every client and never share your data with third parties.' },
-    { q: 'Who has access to our social media accounts?', a: 'Only the assigned team members working on your account have access. We use role-based permissions.' },
-    { q: 'What happens to our data if we stop working together?', a: 'All your data, content, and account access is returned to you immediately upon contract end.' },
-    { q: 'Do you follow platform advertising policies?', a: 'Yes, strictly. We follow all Meta, Google, and platform-specific advertising guidelines.' },
-    { q: 'Is our business strategy kept confidential?', a: 'Absolutely. We treat all client information with complete confidentiality and professionalism.' },
+    { q: 'How do you Protect Our Brand Data?', a: 'All Client Data is Stored Securely. We Sign NDAs With Every Client and Never Share Your Data With Third Parties.' },
+    { q: 'Who has Access to Our Social Media Accounts ?', a: 'Only the Assigned Team Members Working On Your Account Have Access. We Use Role-Based Permissions.' },
+    { q: 'What Happens to Our Data if We Stop Working Together ?', a: 'All Your Data, Content, and Account Access Is Returned to You Immediately Upon Contract End.' },
+    { q: 'Do you Follow Platform Advertising Policies ?', a: 'Yes, Strictly. We Follow All Meta, Google, and Platform-Specific Advertising Guidelines.' },
+    { q: 'Is Our Business Strategy Kept Confidential?', a: 'Absolutely. We Treat All Client Information with Complete Confidentiality and Professionalism.' },
   ],
   3: [
-    { q: 'How do I get started with Socio_Maverick?', a: "Fill out the contact form or book a free discovery call. We'll send a custom proposal within 48 hours." },
-    { q: 'How do I track the progress of my campaigns?', a: 'You get detailed monthly reports covering all KPIs — reach, engagement, leads, conversions, and ROAS.' },
-    { q: 'Can I request changes to the strategy?', a: 'Absolutely. We hold monthly strategy reviews and you can request adjustments anytime.' },
-    { q: 'Do you provide a dedicated account manager?', a: 'Yes. Every client gets a dedicated account manager as their single point of contact.' },
-    { q: 'How quickly do you respond to queries?', a: 'We respond to all client queries within 4 business hours during working days.' },
+    { q: 'How do I get Started with Socio Maverick ?', a: "Fill Out The Contact Form or Book a Free Discovery Call. We'll Send a Custom Proposal within 48 hours." },
+    { q: 'How do I Track the Progress of my Campaigns ?', a: 'You Get Detailed Monthly Reports Covering All KPIs — Reach, Engagement, Leads, Conversions, And ROAS.' },
+    { q: 'Can I Request Changes to the Strategy ?', a: 'Absolutely. We Hold Monthly Strategy Reviews and you can Request Adjustments Anytime.' },
+    { q: 'Do you Provide a Dedicated Account Manager ?', a: 'Yes. Every Client Gets a Dedicated Account Manager as Their Single Point of Contact.' },
+    { q: 'How Quickly do you Respond to Queries ?', a: 'We Respond to All Client Queries within 4 Business Hours During Working Days.' },
   ],
 };
 
@@ -79,7 +79,7 @@ export default function FAQ() {
             >
               <div className="faq-question">
                 <span className="faq-plus">{open === i ? '×' : '+'}</span>
-                <span>{item.q}</span>
+                <span>{item.q.replace(/\?$/, '')}{item.q.endsWith('?') && <span className="q-mark"> ?</span>}</span>
               </div>
               <div className="faq-answer">
                 <div className="faq-answer-inner">

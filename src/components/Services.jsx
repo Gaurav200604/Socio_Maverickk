@@ -59,15 +59,14 @@ export default function Services() {
 
         {/* LEFT — static */}
         <div className="srv-left">
-          <span className="srv-tag">What We Do</span>
+          
           <h2 className="srv-heading">
             Our<br />
             <span className="srv-accent">Services</span>
           </h2>
           <div className="srv-underline" />
           <p className="srv-sub">
-            End-to-end digital solutions designed to grow your brand and scale your business.
-          </p>
+           At Socio Maverick, our team of highly specialized marketing experts — E-commerce, Paid Advertising, Search Engine Optimization, Lead Generation, Conversion Rate Optimization, Performance Marketing, and more — committed to delivering the outcomes you desire. We prioritize meaningful data to guide all our discussions and decisions, emphasizing continuous testing, refinement, and optimization. Our approach ensures that we seize every opportunity for your success.    </p>
           <button className="srv-cta" onClick={() => scrollTo('contact')}>
             Get a Free Proposal
           </button>

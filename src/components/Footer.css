@@ -1,22 +1,34 @@
 .ft-footer {
-  background: #1a1a1a;
+  position: relative;
+  background: #000;
   color: #fff;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  overflow: hidden;
+  padding-top: 156px;
+  scroll-margin-top: 156px;
   box-sizing: border-box;
-  font-family: 'Inter', 'Space Grotesk', sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.ft-footer::before {
+  content: none;
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 42px 42px;
+  pointer-events: none;
 }
 
 /* main grid */
 .ft-grid {
-  flex: 1;
-  max-width: 1200px;
+  position: relative;
+  z-index: 1;
+  max-width: 1380px;
   margin: 0 auto;
-  padding: 160px 60px 64px;
+  padding: clamp(22px, 3.2vw, 38px) clamp(20px, 4.8vw, 64px) clamp(36px, 4vw, 56px);
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: minmax(300px, 1.05fr) minmax(220px, 0.82fr) minmax(360px, 1.28fr);
+  gap: clamp(44px, 5vw, 92px);
   align-items: start;
   width: 100%;
 }
@@ -26,7 +38,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 
 .ft-col-icon {
@@ -35,11 +47,10 @@
 }
 
 .ft-col-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 800;
   color: #fff;
-  letter-spacing: 2px;
+  letter-spacing: 1.4px;
 }
 
 /* service list */
@@ -47,26 +58,24 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
 }
 
 .ft-service-list li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: block;
+  line-height: 1.45;
 }
 
-.ft-bullet {
-  color: var(--saffron);
-  font-size: 0.7rem;
-  flex-shrink: 0;
+.ft-col {
+  margin-left: clamp(32px, 4.2vw, 74px);
 }
 
 .ft-service-list a {
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.7);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  font-size: 0.98rem;
+  color: rgba(255,255,255,0.78);
+  text-decoration: none;
   transition: color 0.2s ease;
 }
 
@@ -76,24 +85,30 @@
 .ft-brand-col {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: clamp(24px, 3.3vw, 36px);
+  border-radius: 18px;
+  width: 100%;
+  backdrop-filter: blur(2px);
 }
 
 .ft-brand-logo {
-  height: 110px;
+  height: clamp(96px, 13vw, 142px);
   width: auto;
   object-fit: contain;
   filter: brightness(0) invert(1);
 }
 
 .ft-brand-tagline {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 2rem;
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
   font-weight: 800;
   color: #fff;
-  line-height: 1.3;
-  margin-left: -90px;
+  line-height: 1.2;
+  margin: 0;
 }
 
 .ft-brand-accent { color: var(--saffron); }
@@ -102,66 +117,77 @@
   display: inline-block;
   background: var(--saffron);
   color: #fff;
-  padding: 12px 32px;
+  padding: 11px 28px;
   border-radius: 50px;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.88rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.8px;
   text-decoration: none;
-  transition: background 0.25s ease, transform 0.2s ease;
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  box-shadow: 0 8px 22px rgba(255,153,0,0.22);
 }
 
 .ft-contact-btn:hover {
   background: var(--saffron-dark);
   transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(255,153,0,0.3);
+}
+
+.ft-address-block {
+  margin-top: 10px;
+}
+
+.ft-address-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.86);
+  margin: 0 0 6px;
 }
 
 .ft-follow-block {
-  margin-top: 16px;
+  margin-top: 30px;
 }
 
 .ft-follow-label {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--saffron);
-  margin-bottom: 16px;
+  margin: 0 0 14px;
   display: block;
-}
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--saffron);
-  margin-bottom: 8px;
 }
 
 .ft-address-text {
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.65);
-  line-height: 1.8;
+  font-size: 0.98rem;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.45;
+  margin: 0;
 }
 
 .ft-socials {
+  justify-content: center;
+  gap: 14px;
   display: flex;
-  gap: 20px;
   flex-wrap: wrap;
+  margin-top: 24px;
 }
 
 .ft-social {
-  width: 52px;
-  height: 52px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.02);
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  padding: 10px;
+  padding: 11px;
   transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), border-color 0.2s ease, filter 0.3s ease;
-  filter: grayscale(100%) opacity(0.45);
+  filter: grayscale(100%) opacity(0.6);
 }
 
 .ft-social img {
@@ -171,7 +197,7 @@
 }
 
 .ft-social:hover {
-  transform: scale(1.2);
+  transform: translateY(-2px) scale(1.08);
   border-color: var(--saffron);
   filter: grayscale(0%) opacity(1);
 }
@@ -181,19 +207,49 @@
 
 /* bottom bar */
 .ft-bottom-bar {
+  position: relative;
+  z-index: 1;
   border-top: 1px solid rgba(255,255,255,0.08);
-  padding: 18px 48px;
+  padding: 16px 24px;
   text-align: center;
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.35);
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.5);
 }
 
 /* responsive */
-@media (max-width: 900px) {
-  .ft-grid { grid-template-columns: 1fr 1fr; gap: 40px; padding: 48px 24px; }
+@media (max-width: 980px) {
+  .ft-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 34px;
+  }
+
+  .ft-col {
+    margin-left: 0;
+  }
+
+  .ft-brand-col {
+    grid-column: 1 / -1;
+  }
 }
 
-@media (max-width: 600px) {
-  .ft-grid { grid-template-columns: 1fr; }
-  .ft-bottom-bar { padding: 18px 24px; }
+@media (max-width: 680px) {
+  .ft-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .ft-brand-col {
+    grid-column: auto;
+  }
+
+  .ft-col {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 20px;
+  }
+
+  .ft-service-list a {
+    font-size: 0.94rem;
+  }
 }

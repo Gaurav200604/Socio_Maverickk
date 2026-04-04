@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import logo from '../assets/socio_mavrick.png';
 import './Navbar.css';
 
 const words = ['Media', 'Production', 'Brands', 'Tech IT'];
 
 export default function Navbar() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
@@ -29,9 +32,30 @@ export default function Navbar() {
 
   const navLinks = ['Home', 'Why Us', 'Services', 'Contact'];
 
-  const scrollTo = (id) => {
+  const smoothScrollToSection = (id) => {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (el) {
+      const navOffset = 92;
+      const y = el.getBoundingClientRect().top + window.pageYOffset - navOffset;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    }
+  };
+
+  const scrollTo = (id) => {
+    if (id === 'contact') {
+      navigate('/contact');
+      setMenuOpen(false);
+      return;
+    }
+
+    if (location.pathname !== '/') {
+      navigate('/');
+      setMenuOpen(false);
+      setTimeout(() => smoothScrollToSection(id), 180);
+      return;
+    }
+
+    smoothScrollToSection(id);
     setMenuOpen(false);
   };
 
