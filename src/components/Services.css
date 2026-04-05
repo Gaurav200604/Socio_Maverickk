@@ -1,6 +1,7 @@
 .srv-section {
   background: var(--white);
-  padding-bottom: 80px;
+  padding-bottom: 0;
+  position: relative;
 }
 
 .srv-layout {
@@ -75,6 +76,13 @@
   cursor: none;
   transition: background 0.25s ease, transform 0.25s ease;
   align-self: flex-start;
+  margin-bottom: 0;
+}
+
+.srv-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
   margin-bottom: 40px;
 }
 
@@ -85,11 +93,33 @@
 
 /* bottom nav — sits in the gap between services and clients */
 .srv-bottom-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  position: absolute;
+  left: 360px;
+  right: 0;
+  top: calc(50% - 4px);
+  transform: translateY(-50%);
+  padding: 0;
+  gap: 0;
+  z-index: 5;
+}
+
+.srv-nav-zone {
+  height: 84px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 24px;
-  padding: 36px 0 0;
+}
+
+.srv-nav-zone.left {
+  justify-content: flex-start;
+  padding-left: 24px;
+}
+
+.srv-nav-zone.right {
+  justify-content: flex-end;
+  padding-right: 24px;
 }
 
 .srv-arrow {
@@ -102,8 +132,11 @@
   align-items: center;
   justify-content: center;
   cursor: none;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  opacity: 0;
+  transform: scale(0.92);
+  pointer-events: none;
 }
 
 .srv-arrow svg {
@@ -116,8 +149,14 @@
 .srv-arrow:hover:not(.disabled) {
   border-color: var(--saffron);
   background: var(--saffron);
-  transform: scale(1.1);
+  transform: scale(1);
   box-shadow: 0 8px 24px rgba(244,166,35,0.45);
+}
+
+.srv-nav-zone:hover .srv-arrow {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
 }
 
 .srv-arrow.disabled {
@@ -128,12 +167,15 @@
 
 .srv-page-info {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  color: var(--light-black);
+  color: rgba(255,255,255,0.85);
   min-width: 48px;
-  text-align: center;
+  text-align: left;
 }
+
+.srv-bottom-nav .srv-arrow:first-child { justify-self: start; }
+.srv-bottom-nav .srv-arrow:last-child { justify-self: end; }
 
 /* ── RIGHT ── */
 .srv-right-clip {
@@ -249,6 +291,29 @@
   .srv-left { width: 100%; min-width: unset; position: static; height: auto; padding: 60px 24px 48px; }
   .srv-grid { height: auto; }
   .srv-card { min-height: 280px; }
+  .srv-bottom-nav {
+    position: static;
+    left: auto;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    margin-left: 0;
+    padding: 28px 24px 0;
+    gap: 16px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .srv-cta-row {
+    margin-bottom: 32px;
+  }
+  .srv-nav-zone { height: auto; }
+  .srv-nav-zone.left { justify-content: flex-start; padding-left: 0; }
+  .srv-nav-zone.right { justify-content: flex-end; padding-right: 0; }
+  .srv-arrow {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+  }
 }
 
 @media (max-width: 600px) {

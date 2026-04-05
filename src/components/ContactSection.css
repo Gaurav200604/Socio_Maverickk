@@ -36,6 +36,30 @@
 .cs-form input, .cs-form textarea { background: #f7f8fa; border: 1.5px solid #e8eaed; border-radius: 10px; padding: 13px 16px; color: var(--light-black); font-family: 'Inter', sans-serif; font-size: 0.9rem; outline: none; resize: none; transition: border-color 0.2s ease; }
 .cs-form input::placeholder, .cs-form textarea::placeholder { color: #aaa; }
 .cs-form input:focus, .cs-form textarea:focus { border-color: var(--saffron); background: #fff; }
+.cs-select {
+  background: #f7f8fa;
+  border: 1.5px solid #e8eaed;
+  border-radius: 10px;
+  padding: 13px 16px;
+  color: var(--light-black);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.cs-select.is-placeholder {
+  color: #9aa0a6;
+  filter: blur(0.35px);
+}
+.cs-select.has-value {
+  color: var(--light-black);
+  filter: none;
+}
+.cs-select:focus {
+  border-color: var(--saffron);
+  background: #fff;
+  filter: none;
+}
 .cs-submit { background: var(--light-black); color: #fff; border: none; padding: 16px; border-radius: 10px; font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; font-weight: 700; cursor: none; width: 100%; transition: background 0.25s ease, transform 0.2s ease; }
 .cs-submit:hover { background: var(--saffron); transform: translateY(-1px); }
 .cs-submit:disabled { opacity: 0.6; }

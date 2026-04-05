@@ -10,7 +10,7 @@ const services = [
   'A.I. and Content Marketing','Productions and Photography',
   'Website Design and Development','Social Media Marketing',
   'Event Management','E-Mail Marketing','E-Commerce Marketing',
-  'Pay Per Click','Branding and Design',
+  'Pay Per Click','Branding and Design','Careers'
 ];
 
 const company = [
@@ -22,10 +22,10 @@ const company = [
 ];
 
 const socials = [
-  { label: 'Instagram', href: '#', icon: igIcon },
-  { label: 'LinkedIn',  href: '#', icon: liIcon },
-  { label: 'Facebook',  href: '#', icon: fbIcon },
-  { label: 'Twitter',   href: '#', icon: twIcon },
+  { label: 'Instagram', href: 'https://www.instagram.com/sociomaverick?igsh=MWJqbGdpa2g3bGt1YQ==', icon: igIcon },
+  { label: 'LinkedIn',  href: 'https://www.linkedin.com/company/sociomaverick', icon: liIcon },
+  { label: 'Facebook',  href: 'https://www.facebook.com/share/1du8FWywBZ/?mibextid=wwXIfr', icon: fbIcon },
+  { label: 'Twitter',   href: 'https://x.com/sociomaverick?s=21&t=zeDGUXgHi6VJUXfNvbYunA', icon: twIcon },
 ];
 
 export default function Footer() {
@@ -43,7 +43,7 @@ export default function Footer() {
           <div className="ft-address-block">
             <p className="ft-address-label">OFFICE ADDRESS</p>
             <p className="ft-address-text">
-              New Delhi, India — Remote Friendly<br />
+              2nd Floor, Property No. 44, Regal Building, Connaught Place., New Delhi, Delhi 110001, IN<br />
               hello@sociomaverick.com<br />
               +91 89310 35612
             </p>
@@ -52,7 +52,7 @@ export default function Footer() {
             <p className="ft-follow-label">FOLLOW US ON</p>
             <div className="ft-socials">
               {socials.map(s => (
-                <a key={s.label} href={s.href} className="ft-social" aria-label={s.label} data-hover>
+                <a key={s.label} href={s.href} className="ft-social" aria-label={s.label} target="_blank" rel="noopener noreferrer" data-hover>
                   <img src={s.icon} alt={s.label} />
                 </a>
               ))}
@@ -92,9 +92,9 @@ export default function Footer() {
 
       </div>
 
-      {/* <div className="ft-bottom-bar">
-        <p>All Rights Reserved — {new Date().getFullYear()}</p>
-      </div> */}
+      <div className="ft-bottom-bar">
+        <p>All Rights Reserved © {new Date().getFullYear()} Socio Maverick Pvt. Ltd.</p>
+      </div>
     </footer>
   );
 }

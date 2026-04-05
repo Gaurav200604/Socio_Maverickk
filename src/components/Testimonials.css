@@ -14,12 +14,12 @@
   width: 1000px;
   height: 280px;
   background: radial-gradient(ellipse at center,
-    rgba(244,166,35,0.32) 0%,
-    rgba(244,166,35,0.12) 40%,
+    rgba(244,166,35,0.2) 0%,
+    rgba(244,166,35,0.08) 40%,
     transparent 70%
   );
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
   filter: blur(20px);
 }
 
@@ -30,14 +30,17 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(5rem, 16vw, 14rem);
+  font-size: clamp(4.2rem, 13vw, 11rem);
   font-weight: 900;
-  letter-spacing: -4px;
-  color: rgba(255,255,255,0.07);
+  letter-spacing: -2px;
+  color: rgba(255,255,255,0.12);
+  text-shadow: 0 0 24px rgba(244,166,35,0.24), 0 0 56px rgba(244,166,35,0.14);
+  width: 100%;
+  text-align: center;
   white-space: nowrap;
   pointer-events: none;
   user-select: none;
-  z-index: 0;
+  z-index: 1;
 }
 
 /* ── 3-column grid ── */
@@ -56,7 +59,7 @@
 /* ── each column ── */
 .t-col {
   position: relative;
-  height: 680px;
+  height: 700px;
   overflow: hidden;
 }
 
@@ -64,12 +67,12 @@
 .t-fade-bottom {
   position: absolute;
   left: 0; right: 0;
-  height: 90px;
+  height: 56px;
   z-index: 2;
   pointer-events: none;
 }
-.t-fade-top    { top: 0;    background: linear-gradient(to bottom, #0d0d0d, transparent); }
-.t-fade-bottom { bottom: 0; background: linear-gradient(to top,    #0d0d0d, transparent); }
+.t-fade-top    { top: 0;    background: linear-gradient(to bottom, rgba(13,13,13,0.88), transparent); }
+.t-fade-bottom { bottom: 0; background: linear-gradient(to top,    rgba(13,13,13,0.88), transparent); }
 
 .t-track {
   display: flex;
@@ -80,16 +83,17 @@
 
 /* ── card ── */
 .t-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.09);
+  border: 1px solid rgba(255,255,255,0.16);
   border-radius: 16px;
   padding: 24px 22px 20px;
   transition: background 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.22);
 }
 
 .t-card:hover {
-  background: rgba(255,255,255,0.07);
-  border-color: rgba(244,166,35,0.3);
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(244,166,35,0.45);
 }
 
 .t-stars {
@@ -100,8 +104,8 @@
 }
 
 .t-para {
-  font-size: 0.88rem;
-  color: rgba(255,255,255,0.65);
+  font-size: 0.94rem;
+  color: rgba(255,255,255,0.9);
   line-height: 1.75;
   margin-bottom: 18px;
 }
@@ -151,7 +155,7 @@
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.62);
   margin-top: 2px;
 }
 

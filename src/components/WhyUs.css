@@ -76,8 +76,9 @@
 
 /* ── text side ── */
 .ws-text {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto minmax(180px, auto) minmax(110px, auto) auto auto;
+  align-content: start;
 }
 
 .ws-tag {
@@ -90,7 +91,7 @@
   background: rgba(244,166,35,0.1);
   padding: 5px 14px;
   border-radius: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   align-self: flex-start;
 }
 
@@ -101,7 +102,7 @@
   color: var(--light-black);
   line-height: 1.25;
   letter-spacing: -0.5px;
-  margin-bottom: 20px;
+  margin-bottom: 0;
   white-space: pre-line;
 }
 
@@ -111,7 +112,7 @@
   font-size: 1rem;
   color: var(--gray);
   line-height: 1.75;
-  margin-bottom: 32px;
+  margin-bottom: 0;
   max-width: 440px;
 }
 
@@ -121,7 +122,7 @@
   height: 3px;
   background: rgba(0,0,0,0.08);
   border-radius: 2px;
-  margin-bottom: 20px;
+  margin: 24px 0 20px;
   overflow: hidden;
 }
 
@@ -168,7 +169,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(244,166,35,0.04);
   border-radius: 20px;
   overflow: hidden;
   padding: 20px;
@@ -188,4 +188,7 @@
     min-height: auto;
   }
   .ws-img-wrap { height: 260px; }
+  .ws-text {
+    grid-template-rows: auto auto auto auto auto;
+  }
 }

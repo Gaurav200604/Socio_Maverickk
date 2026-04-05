@@ -1,5 +1,5 @@
 import './Clients.css';
-import miranda from '../assetcompany/Miranda_House__1_-removebg-preview.png';
+import miranda from '../assetcompany/10.png';
 import kmc     from '../assetcompany/9.png';
 import rajat   from '../assetcompany/Rajat_Caters-removebg-previewNEW.png';
 import bttpl   from '../assetcompany/Beamer_Trades_and_Technologies__1_-removebg-preview.png';

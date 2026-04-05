@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import img1 from '../assetwhy/1.png';
-import img2 from '../assetwhy/2.png';
-import img3 from '../assetwhy/3.png';
-import img4 from '../assetwhy/4.png';
-import img5 from '../assetwhy/5.png';
-import img6 from '../assetwhy/6.png';
+import img1 from '../assetwhy/11.png';
+import img2 from '../assetwhy/22.png';
+import img3 from '../assetwhy/33.png';
+import img4 from '../assetwhy/44.png';
+import img5 from '../assetwhy/55.png';
+import img6 from '../assetwhy/66.png';
 
 import './WhyUs.css';
 
@@ -80,7 +80,7 @@ export default function WhyUs() {
           Why <span className="ws-header-accent brand-name">Socio Maverick</span><span className="q-mark">?</span>
         </h2>
         <p className="ws-header-sub">
-          We're not just another agency — we're your growth partner, obsessed with results.
+          We're not Just Another Agency — we're your Growth Partner, Obsessed with Results.
         </p>
       </div>
 

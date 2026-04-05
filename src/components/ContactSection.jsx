@@ -8,7 +8,7 @@ const PUBLIC_KEY  = 'wp5rTp1v2yTMEqpZv';
 
 export default function ContactSection() {
   const formRef = useRef(null);
-  const [form, setForm] = useState({ name: '', email: '', phone: '', company: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', company: '', service: '', message: '' });
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState('');
@@ -20,7 +20,7 @@ export default function ContactSection() {
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
       .then(() => {
         setSent(true);
-        setForm({ name:'', email:'', phone:'', company:'', message:'' });
+        setForm({ name:'', email:'', phone:'', company:'', service:'', message:'' });
         setSending(false);
         setTimeout(() => setSent(false), 5000);
       })
@@ -37,7 +37,7 @@ export default function ContactSection() {
           <h2 className="cs-title">
             India's Top<br />
             Digital Marketing<br />
-            <span className="cs-accent">an Advertising Agency</span>
+            <span className="cs-accent">& Advertising Agency</span>
           </h2>
           <p className="cs-desc">
             Armed with data-driven strategies and a sharp creative mindset, we tackle the toughest
@@ -78,6 +78,26 @@ export default function ContactSection() {
               <input type="text" name="company" placeholder="Company / Brand Name"
                 value={form.company} onChange={e => setForm({...form, company: e.target.value})} />
             </div>
+            <select
+              name="service"
+              className={`cs-select ${form.service ? 'has-value' : 'is-placeholder'}`}
+              required
+              value={form.service}
+              onChange={e => setForm({ ...form, service: e.target.value })}
+            >
+              <option value="">Please Select</option>
+              <option value="Social Media Marketing">Social Media Marketing</option>
+              <option value="Media Planning">Media Planning</option>
+              <option value="Collateral Design">Collateral Design</option>
+              <option value="Website Design & Development">Website Design & Development</option>
+              <option value="Youth Marketing">Youth Marketing</option>
+              <option value="Search Engine Optimization">Search Engine Optimization</option>
+              <option value="Video Production">Video Production</option>
+              <option value="Influencer Marketing">Influencer Marketing</option>
+              <option value="ORM & Listening">ORM & Listening</option>
+              <option value="Animation">Animation</option>
+              <option value="Integrated Advertising">Integrated Advertising</option>
+            </select>
             <textarea name="message" placeholder="Message" rows={4} required
               value={form.message} onChange={e => setForm({...form, message: e.target.value})} />
             <button type="submit" className="cs-submit" disabled={sending}>

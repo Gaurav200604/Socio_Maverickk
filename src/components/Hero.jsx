@@ -87,7 +87,13 @@ function InteractiveGrid() {
 const CYCLE_WORDS = ['Vision', 'Brand', 'Dream','Bussiness','Growth'];
 
 export default function Hero() {
-  const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  const scrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const navOffset = 92;
+    const y = el.getBoundingClientRect().top + window.pageYOffset - navOffset;
+    window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+  };
   const [wordIdx, setWordIdx] = useState(0);
   const [visible, setVisible] = useState(true);
 

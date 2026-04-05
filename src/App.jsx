@@ -7,6 +7,7 @@ import ScrollQuote from './components/ScrollQuote';
 import Services from './components/Services';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
+import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import './App.css';
 
@@ -25,6 +26,7 @@ export default function App() {
         <Clients />
         <Testimonials />
         <FAQ />
+        <ContactSection />
         <Footer />
       </div>
     </>
