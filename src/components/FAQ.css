@@ -76,14 +76,14 @@
 }
 
 .faq-item {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--saffron);
   cursor: pointer;
   transition: background 0.2s ease;
   padding: 0 4px;
   border-radius: 4px;
 }
 
-.faq-item:first-child { border-top: 1px solid #eee; }
+.faq-item:first-child { border-top: 1px solid var(--saffron); }
 .faq-item:hover { background: rgba(244,166,35,0.03); }
 
 .faq-question {
