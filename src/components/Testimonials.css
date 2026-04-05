@@ -11,8 +11,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 1000px;
-  height: 280px;
+  width: min(1000px, 88vw);
+  height: min(280px, 34vw);
   background: radial-gradient(ellipse at center,
     rgba(244,166,35,0.2) 0%,
     rgba(244,166,35,0.08) 40%,
@@ -59,7 +59,7 @@
 /* ── each column ── */
 .t-col {
   position: relative;
-  height: 700px;
+  height: clamp(520px, 64vh, 700px);
   overflow: hidden;
 }
 
@@ -170,5 +170,5 @@
   .t-col:nth-child(3) {
     display: none;
   }
-  .t-col { height: 560px; }
+  .t-col { height: clamp(440px, 62vh, 560px); }
 }

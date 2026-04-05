@@ -6,6 +6,7 @@
 
 .srv-layout {
   display: flex;
+  min-height: 100svh;
   min-height: 100vh;
   align-items: stretch;
 }
@@ -22,7 +23,8 @@
   flex-shrink: 0;
   position: sticky;
   top: 0;
-  height: 100vh;
+  height: 100svh;
+  min-height: 100vh;
 }
 
 .srv-tag {
@@ -187,7 +189,8 @@
 .srv-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 100vh;
+  min-height: 100svh;
+  min-height: 100vh;
 }
 
 /* card */

@@ -21,6 +21,15 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 92px;
+  width: 100%;
+  overflow-x: clip;
+}
+
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 section[id],
@@ -35,6 +44,13 @@ body {
   color: var(--light-black);
   overflow-x: hidden;
   cursor: none;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
 }
 
 /* Global heading font override — Fraunces serif */
