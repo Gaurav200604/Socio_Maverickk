@@ -30,7 +30,7 @@ export default function Navbar() {
     return () => clearInterval(interval);
   }, []);
 
-  const navLinks = ['Home', 'Why Us', 'Services', 'Contact'];
+  const navLinks = ['Home', 'Works', 'Services', 'Contact'];
 
   const smoothScrollToSection = (id) => {
     const el = document.getElementById(id);
@@ -75,7 +75,7 @@ export default function Navbar() {
             <li key={link}>
               <button
                 onClick={() =>
-                  scrollTo(link.toLowerCase().replace(' ', '-').replace('why us', 'why'))
+                  scrollTo(link.toLowerCase().replace(' ', '-').replace('works', 'why'))
                 }
               >
                 {link}
