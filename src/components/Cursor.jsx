@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 function isDarkAt(x, y) {
   const el = document.elementFromPoint(x, y);
@@ -28,9 +28,27 @@ function isDarkAt(x, y) {
 
 export default function Cursor() {
   const canvasRef = useRef(null);
+  const [isCursorEnabled, setIsCursorEnabled] = useState(true);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 768px), (pointer: coarse)');
+    const updateCursorState = () => {
+      setIsCursorEnabled(!mediaQuery.matches);
+    };
+
+    updateCursorState();
+    mediaQuery.addEventListener('change', updateCursorState);
+
+    return () => {
+      mediaQuery.removeEventListener('change', updateCursorState);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isCursorEnabled) return;
+
     const canvas = canvasRef.current;
+    if (!canvas) return;
     const ctx = canvas.getContext('2d');
 
     let W = window.innerWidth;
@@ -121,7 +139,9 @@ export default function Cursor() {
       window.removeEventListener('mousemove', onMove);
       window.removeEventListener('resize', onResize);
     };
-  }, []);
+  }, [isCursorEnabled]);
+
+  if (!isCursorEnabled) return null;
 
   return (
     <canvas

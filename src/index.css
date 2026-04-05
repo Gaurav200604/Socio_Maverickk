@@ -44,6 +44,15 @@ h1, h2, h3, h4, h5, h6 {
 
 a, button, [data-hover] { cursor: none; }
 
+@media (max-width: 768px), (pointer: coarse) {
+  body,
+  a,
+  button,
+  [data-hover] {
+    cursor: auto;
+  }
+}
+
 /* Keep footer using sans-serif */
 .ft-footer h1, .ft-footer h2, .ft-footer h3,
 .ft-footer h4, .ft-footer h5, .ft-footer h6 {
