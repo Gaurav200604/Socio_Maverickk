@@ -84,7 +84,7 @@ function InteractiveGrid() {
   return <canvas ref={canvasRef} className="hero-grid-canvas" />;
 }
 
-const CYCLE_WORDS = ['Vision', 'Brand', 'Dream','Bussiness','Growth'];
+const CYCLE_WORDS = ['Vision', 'Brand', 'Dream','Bussiness'];
 
 export default function Hero() {
   const scrollTo = (id) => {
