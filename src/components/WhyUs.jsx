@@ -110,8 +110,12 @@ export default function WhyUs() {
         </div>
 
         {/* right image */}
-        <div className="ws-img-wrap">
-          <img src={slide.img} alt={slide.tag} className="ws-img" />
+        <div className={`ws-img-wrap ${slide.tag === 'Brand Presence' ? 'ws-img-wrap-brand' : ''}`}>
+          <img
+            src={slide.img}
+            alt={slide.tag}
+            className={`ws-img ${slide.tag === 'Brand Presence' ? 'ws-img-brand' : ''}`}
+          />
         </div>
 
       </div>

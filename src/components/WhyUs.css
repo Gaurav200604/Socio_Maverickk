@@ -1,6 +1,6 @@
 .ws-section {
   background: #fdfcfb;
-  padding: 80px 0;
+  padding: 64px 0 80px;
   overflow: hidden;
 }
 
@@ -51,7 +51,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
-  align-items: center;
+  align-items: start;
   min-height: 420px;
 }
 
@@ -167,17 +167,31 @@
   width: 100%;
   height: 480px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  align-self: start;
   border-radius: 20px;
   overflow: hidden;
-  padding: 20px;
+  padding: 0;
 }
 
 .ws-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  object-position: top center;
+}
+
+.ws-img-brand {
+  width: 86%;
+  height: 86%;
+  object-position: top center;
+  transform: none;
+}
+
+.ws-img-wrap-brand {
+  height: 430px;
+  justify-content: center;
 }
 
 @media (max-width: 900px) {

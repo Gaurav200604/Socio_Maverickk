@@ -65,26 +65,32 @@ export default function Cursor() {
     const dot  = { x: W / 2, y: H / 2 };
     const ring = { x: W / 2, y: H / 2 };
     const trail = [];
-    const TRAIL_LEN = 18;
+    const TRAIL_LEN = 12;
+    const TRAIL_PUSH_INTERVAL = 12;
+    const DARK_CHECK_INTERVAL = 80;
+    const SAFFRON = '244,166,35';
 
-    let isMoving = false;
-    let moveTimer = null;
     let dark = false; // is background dark at cursor?
+    let lastMoveAt = 0;
+    let lastTrailPushAt = 0;
+    let lastDarkCheckAt = 0;
 
     const onMove = (e) => {
+      const now = performance.now();
       dot.x = e.clientX;
       dot.y = e.clientY;
-      isMoving = true;
-      clearTimeout(moveTimer);
-      moveTimer = setTimeout(() => { isMoving = false; }, 120);
+      lastMoveAt = now;
 
-      trail.push({ x: e.clientX, y: e.clientY });
-      if (trail.length > TRAIL_LEN) trail.shift();
+      if (now - lastTrailPushAt >= TRAIL_PUSH_INTERVAL) {
+        trail.push({ x: e.clientX, y: e.clientY });
+        if (trail.length > TRAIL_LEN) trail.shift();
+        lastTrailPushAt = now;
+      }
 
-      // temporarily hide canvas so elementFromPoint skips it
-      canvas.style.display = 'none';
-      dark = isDarkAt(e.clientX, e.clientY);
-      canvas.style.display = '';
+      if (now - lastDarkCheckAt >= DARK_CHECK_INTERVAL) {
+        dark = isDarkAt(e.clientX, e.clientY);
+        lastDarkCheckAt = now;
+      }
     };
 
     const onResize = () => {
@@ -99,10 +105,10 @@ export default function Cursor() {
 
     let raf;
 
-    function draw() {
+    function draw(now) {
       ctx.clearRect(0, 0, W, H);
 
-      const SAFFRON  = '244,166,35';
+      const isMoving = now - lastMoveAt < 120;
       const ringColor = dark ? '255,255,255' : '26,26,26'; // white on dark, black on light
 
       // comet trail — always saffron
@@ -117,8 +123,8 @@ export default function Cursor() {
       }
 
       // lagging ring — black on white, white on dark
-      ring.x += (dot.x - ring.x) * 0.12;
-      ring.y += (dot.y - ring.y) * 0.12;
+      ring.x += (dot.x - ring.x) * 0.18;
+      ring.y += (dot.y - ring.y) * 0.18;
 
       ctx.beginPath();
       ctx.arc(ring.x, ring.y, 14, 0, Math.PI * 2);
@@ -142,7 +148,6 @@ export default function Cursor() {
 
     return () => {
       cancelAnimationFrame(raf);
-      clearTimeout(moveTimer);
       body.classList.remove('custom-cursor-active');
       window.removeEventListener('pointermove', onMove);
       window.removeEventListener('resize', onResize);
