@@ -45,11 +45,17 @@ export default function Cursor() {
   }, []);
 
   useEffect(() => {
+    const body = document.body;
+    body.classList.remove('custom-cursor-active');
+
     if (!isCursorEnabled) return;
 
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    body.classList.add('custom-cursor-active');
 
     let W = window.innerWidth;
     let H = window.innerHeight;
@@ -88,7 +94,7 @@ export default function Cursor() {
       canvas.height = H;
     };
 
-    window.addEventListener('mousemove', onMove);
+    window.addEventListener('pointermove', onMove, { passive: true });
     window.addEventListener('resize', onResize);
 
     let raf;
@@ -136,7 +142,9 @@ export default function Cursor() {
 
     return () => {
       cancelAnimationFrame(raf);
-      window.removeEventListener('mousemove', onMove);
+      clearTimeout(moveTimer);
+      body.classList.remove('custom-cursor-active');
+      window.removeEventListener('pointermove', onMove);
       window.removeEventListener('resize', onResize);
     };
   }, [isCursorEnabled]);
@@ -151,7 +159,7 @@ export default function Cursor() {
         top: 0, left: 0,
         width: '100%', height: '100%',
         pointerEvents: 'none',
-        zIndex: 99999,
+        zIndex: 2147483647,
       }}
     />
   );

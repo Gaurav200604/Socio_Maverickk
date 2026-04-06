@@ -43,7 +43,7 @@ body {
   background-color: var(--white);
   color: var(--light-black);
   overflow-x: hidden;
-  cursor: none;
+  cursor: auto;
 }
 
 img,
@@ -58,7 +58,31 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Fraunces', serif;
 }
 
-a, button, [data-hover] { cursor: none; }
+body.custom-cursor-active,
+body.custom-cursor-active a,
+body.custom-cursor-active button,
+body.custom-cursor-active [data-hover] {
+  cursor: none;
+}
+
+@media (min-width: 769px) and (pointer: fine) {
+  body:not(.custom-cursor-active) * {
+    cursor: auto !important;
+  }
+
+  body:not(.custom-cursor-active) a,
+  body:not(.custom-cursor-active) button,
+  body:not(.custom-cursor-active) [role="button"],
+  body:not(.custom-cursor-active) input[type="button"],
+  body:not(.custom-cursor-active) input[type="submit"] {
+    cursor: pointer !important;
+  }
+
+  body:not(.custom-cursor-active) input,
+  body:not(.custom-cursor-active) textarea {
+    cursor: text !important;
+  }
+}
 
 @media (max-width: 768px), (pointer: coarse) {
   body,

@@ -6,11 +6,11 @@ import twIcon from '../assetsocial/twitter.svg';
 import './Footer.css';
 
 const companyLinks = [
-  { label: 'About Us', href: '/#home' },
-  { label: 'Why Choose Us?', href: '/#why' },
-  { label: 'Services', href: '/#services' },
+  { label: 'About Us', href: '/about' },
+  { label: 'Why Choose Us?', href: '/work' },
+  { label: 'Services', href: '/services' },
   { label: 'Contact Us', href: '/contact' },
-  { label: 'Blogs', href: '/#testimonials' },
+  { label: 'Blogs', href: '/work' },
 ];
 
 const services = [
@@ -122,7 +122,7 @@ const Footer = ({ fullPage = false }) => {
           <ul className="footer-nav-list">
             {services.map((service) => (
               <li key={service}>
-                <a href="/#services" className="footer-nav-link">
+                <a href="/services" className="footer-nav-link">
                   {service}
                 </a>
               </li>

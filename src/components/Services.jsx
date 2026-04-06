@@ -51,6 +51,10 @@ export default function Services() {
   const totalPages = Math.ceil(services.length / PER_PAGE);
   const visible = services.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE);
 
+  const preventSelectionOnMouseDown = (e) => {
+    e.preventDefault();
+  };
+
   const scrollTo = (id) => {
     const el = document.getElementById(id);
     if (!el) return;
@@ -74,7 +78,11 @@ export default function Services() {
           <p className="srv-sub">
            At Socio Maverick, our team of highly specialized marketing experts — E-commerce, Paid Advertising, Search Engine Optimization, Lead Generation, Conversion Rate Optimization, Performance Marketing, and more — committed to delivering the outcomes you desire. We prioritize meaningful data to guide all our discussions and decisions, emphasizing continuous testing, refinement, and optimization. Our approach ensures that we seize every opportunity for your success.    </p>
           <div className="srv-cta-row">
-            <button className="srv-cta" onClick={() => scrollTo('contact')}>
+            <button
+              className="srv-cta"
+              onMouseDown={preventSelectionOnMouseDown}
+              onClick={() => scrollTo('contact')}
+            >
               Get a Free Proposal
             </button>
             <span className="srv-page-info">{page + 1} / {totalPages}</span>
@@ -90,7 +98,11 @@ export default function Services() {
                 <h3 className="srv-card-title">{s.title}</h3>
                 <div className="srv-card-line" />
                 <p className="srv-card-desc">{s.desc}</p>
-                <button className="srv-read-more" onClick={() => scrollTo('contact')}>
+                <button
+                  className="srv-read-more"
+                  onMouseDown={preventSelectionOnMouseDown}
+                  onClick={() => scrollTo('contact')}
+                >
                   Explore
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <path d="M5 12h14M12 5l7 7-7 7" />

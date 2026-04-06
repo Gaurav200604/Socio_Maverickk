@@ -1,4 +1,3 @@
-import Cursor from './components/Cursor';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import WhyUs from './components/WhyUs';
@@ -14,7 +13,6 @@ import './App.css';
 export default function App() {
   return (
     <>
-      <Cursor />
       <Navbar />
       <div className="hero-sticky-wrapper">
         <Hero />

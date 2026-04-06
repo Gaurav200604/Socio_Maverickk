@@ -1,0 +1,70 @@
+.info-page-main {
+  padding-top: 92px;
+  background: #ffffff;
+}
+
+.info-page-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 56px 20px 72px;
+}
+
+.info-page-eyebrow {
+  color: var(--saffron);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.info-page-section h1 {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  line-height: 1.2;
+  margin-bottom: 18px;
+  color: var(--light-black);
+}
+
+.info-page-section p {
+  font-size: 1.03rem;
+  line-height: 1.75;
+  color: #2f2f2f;
+  max-width: 760px;
+  margin-bottom: 14px;
+}
+
+.info-page-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.info-page-card {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 18px;
+  background: #fffaf2;
+}
+
+.info-page-card h2 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.info-page-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.info-page-list {
+  margin: 20px 0 0;
+  padding-left: 20px;
+}
+
+.info-page-list li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}

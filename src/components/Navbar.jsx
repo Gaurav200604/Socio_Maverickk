@@ -30,32 +30,18 @@ export default function Navbar() {
     return () => clearInterval(interval);
   }, []);
 
-  const navLinks = ['Home', 'Works', 'Services', 'Contact'];
+  const navLinks = [
+    { label: 'Home', path: '/' },
+    { label: 'About', path: '/about' },
+    { label: 'Work', path: '/work' },
+    { label: 'Services', path: '/services' },
+    { label: 'Contact', path: '/contact' },
+  ];
 
-  const smoothScrollToSection = (id) => {
-    const el = document.getElementById(id);
-    if (el) {
-      const navOffset = 92;
-      const y = el.getBoundingClientRect().top + window.pageYOffset - navOffset;
-      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+  const goTo = (path) => {
+    if (location.pathname !== path) {
+      navigate(path);
     }
-  };
-
-  const scrollTo = (id) => {
-    if (id === 'contact') {
-      navigate('/contact');
-      setMenuOpen(false);
-      return;
-    }
-
-    if (location.pathname !== '/') {
-      navigate('/');
-      setMenuOpen(false);
-      setTimeout(() => smoothScrollToSection(id), 180);
-      return;
-    }
-
-    smoothScrollToSection(id);
     setMenuOpen(false);
   };
 
@@ -63,7 +49,7 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
 
-        <div className="nav-logo" onClick={() => scrollTo('home')}>
+        <div className="nav-logo" onClick={() => goTo('/')}>
           <img src={logo} alt="Socio Maverick" className="nav-logo-img" />
           <span className={`nav-logo-word ${visible ? 'word-in' : 'word-out'}`}>
             <span className="nav-logo-dot">.</span>{words[wordIndex]}
@@ -72,18 +58,14 @@ export default function Navbar() {
 
         <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
           {navLinks.map((link) => (
-            <li key={link}>
-              <button
-                onClick={() =>
-                  scrollTo(link.toLowerCase().replace(' ', '-').replace('works', 'why'))
-                }
-              >
-                {link}
+            <li key={link.label}>
+              <button onClick={() => goTo(link.path)}>
+                {link.label}
               </button>
             </li>
           ))}
           <li>
-            <button className="nav-cta" onClick={() => scrollTo('contact')}>
+            <button className="nav-cta" onClick={() => goTo('/contact')}>
               Get Started
             </button>
           </li>

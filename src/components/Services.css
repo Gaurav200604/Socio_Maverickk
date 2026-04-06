@@ -280,6 +280,31 @@
   cursor: none;
   transition: background 0.25s ease;
   align-self: flex-start;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.srv-cta {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.srv-read-more:focus-visible,
+.srv-cta:focus-visible {
+  outline: 2px solid #FF8C00;
+  outline-offset: 2px;
+}
+
+.srv-section ::selection {
+  background: rgba(255, 140, 0, 0.2);
+  color: inherit;
+}
+
+.srv-section ::-moz-selection {
+  background: rgba(255, 140, 0, 0.2);
+  color: inherit;
 }
 
 .srv-card:hover .srv-card-num   { color: rgba(255,140,0,0.8); }
