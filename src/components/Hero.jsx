@@ -87,6 +87,10 @@ function InteractiveGrid() {
 const CYCLE_WORDS = ['Vision', 'Brand', 'Dream','Bussiness'];
 
 export default function Hero() {
+  const preventSelectionOnMouseDown = (e) => {
+    e.preventDefault();
+  };
+
   const scrollTo = (id) => {
     const el = document.getElementById(id);
     if (!el) return;
@@ -132,10 +136,18 @@ export default function Hero() {
         </p>
 
         <div className="hero-cta-row">
-          <button className="btn-primary" onClick={() => scrollTo('contact')}>
+          <button
+            className="btn-primary"
+            onMouseDown={preventSelectionOnMouseDown}
+            onClick={() => scrollTo('contact')}
+          >
             Start Your Journey
           </button>
-          <button className="btn-secondary" onClick={() => scrollTo('services')}>
+          <button
+            className="btn-secondary"
+            onMouseDown={preventSelectionOnMouseDown}
+            onClick={() => scrollTo('services')}
+          >
             Explore Services
           </button>
         </div>

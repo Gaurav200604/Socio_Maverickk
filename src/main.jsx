@@ -10,6 +10,21 @@ import ServicesPage from './pages/ServicesPage.jsx'
 import Cursor from './components/Cursor.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
 
+const removeTextFragmentHighlight = () => {
+  if (typeof window === 'undefined') return;
+
+  if (window.location.hash.includes(':~:text=')) {
+    window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
+  }
+
+  const selection = window.getSelection?.();
+  if (selection && selection.rangeCount > 0) {
+    selection.removeAllRanges();
+  }
+};
+
+removeTextFragmentHighlight();
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>

@@ -125,3 +125,18 @@ body.custom-cursor-active [data-hover] {
   font-style: normal !important;
   font-family: 'Barlow Condensed', sans-serif !important;
 }
+
+::selection {
+  background: rgba(244, 166, 35, 0.2);
+  color: inherit;
+}
+
+::-moz-selection {
+  background: rgba(244, 166, 35, 0.2);
+  color: inherit;
+}
+
+::target-text {
+  background: transparent;
+  color: inherit;
+}
