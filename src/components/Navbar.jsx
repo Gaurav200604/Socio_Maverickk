@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../assets/socio_mavrick.png';
 import './Navbar.css';
 
@@ -59,15 +59,15 @@ export default function Navbar() {
         <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
           {navLinks.map((link) => (
             <li key={link.label}>
-              <button onClick={() => goTo(link.path)}>
+              <Link to={link.path} onClick={() => setMenuOpen(false)}>
                 {link.label}
-              </button>
+              </Link>
             </li>
           ))}
           <li>
-            <button className="nav-cta" onClick={() => goTo('/contact')}>
+            <Link className="nav-cta" to="/contact" onClick={() => setMenuOpen(false)}>
               Get Started
-            </button>
+            </Link>
           </li>
         </ul>
 
