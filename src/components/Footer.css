@@ -189,22 +189,22 @@
 
 .social-icons {
   display: flex;
+  align-items: center;
   gap: 14px;
 }
 
 .social-icon {
   width: 56px;
   height: 56px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
+  border: none;
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.58);
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  padding: 4px;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .social-icon svg {
@@ -213,23 +213,26 @@
 }
 
 .social-icon img {
-  width: 22px;
-  height: 22px;
+  width: 30px;
+  height: 30px;
   object-fit: contain;
-  filter: grayscale(100%) brightness(1.25) opacity(0.58);
+  filter: grayscale(100%) brightness(1.2) opacity(0.72);
   transition: filter 0.2s ease, transform 0.2s ease;
 }
 
+.social-icon--instagram img {
+  width: 48px;
+  height: 48px;
+}
+
 .social-icon:hover {
-  background: rgba(242, 140, 30, 0.12);
-  border-color: rgba(242, 140, 30, 0.38);
   color: var(--clr-orange);
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.12);
 }
 
 .social-icon:hover img {
-  filter: grayscale(0%) brightness(1.2) opacity(1);
-  transform: scale(1.04);
+  filter: grayscale(0%) saturate(1.35) brightness(1.1) opacity(1);
+  transform: scale(1.18);
 }
 
 /* =========================================

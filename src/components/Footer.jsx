@@ -87,7 +87,7 @@ const Footer = ({ fullPage = false }) => {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="social-icon"
+                  className={`social-icon ${item.label === 'Instagram' ? 'social-icon--instagram' : ''}`}
                   aria-label={item.label}
                   target="_blank"
                   rel="noopener noreferrer"
