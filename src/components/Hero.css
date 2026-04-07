@@ -182,8 +182,9 @@
 }
 
 .ticker-sep {
-  color: var(--gray);
-  font-size: 1rem;
+  color: var(--light-black);
+  font-size: 0.62rem;
+  line-height: 1;
 }
 
 @media (max-width: 600px) {

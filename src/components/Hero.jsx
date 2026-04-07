@@ -160,7 +160,7 @@ export default function Hero() {
       <div className="hero-ticker">
         <div className="ticker-track">
           {TICKER.map((text, i) => (
-            <span key={i} className="ticker-item">{text}<span className="ticker-sep">·</span></span>
+            <span key={i} className="ticker-item">{text}<span className="ticker-sep">✦</span></span>
           ))}
         </div>
       </div>

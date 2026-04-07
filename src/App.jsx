@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import WhyUs from './components/WhyUs';
+
 import Clients from './components/Clients';
 import ScrollQuote from './components/ScrollQuote';
 import Services from './components/Services';
@@ -21,6 +22,7 @@ export default function App() {
         <Services />
         <ScrollQuote />
         <WhyUs />
+       
         <Clients />
         <Testimonials />
         <FAQ />

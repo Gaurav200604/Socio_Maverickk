@@ -33,10 +33,10 @@ export default function Navbar() {
   const navLinks = [
     { label: 'Home', path: '/' },
     { label: 'About', path: '/about' },
-    { label: 'Why Us', path: '/why-us' },
+    
     { label: 'Work', path: '/work' },
     { label: 'Services', path: '/services' },
-    { label: 'FAQ', path: '/faq' },
+    { label: 'Blogs', path: '/faq' },
     { label: 'Contact', path: '/contact' },
   ];
 
