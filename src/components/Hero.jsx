@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Hero.css';
 
 const TICKER = ['REPEAT', 'DESIGN', 'STRATEGY', 'IMPACT',
@@ -87,6 +88,8 @@ function InteractiveGrid() {
 const CYCLE_WORDS = ['Vision', 'Brand', 'Dream','Bussiness'];
 
 export default function Hero() {
+  const navigate = useNavigate();
+
   const preventSelectionOnMouseDown = (e) => {
     e.preventDefault();
   };
@@ -139,7 +142,7 @@ export default function Hero() {
           <button
             className="btn-primary"
             onMouseDown={preventSelectionOnMouseDown}
-            onClick={() => scrollTo('contact')}
+            onClick={() => navigate('/contact')}
           >
             Start Your Journey
           </button>

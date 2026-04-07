@@ -7,8 +7,11 @@ import './Footer.css';
 
 const companyLinks = [
   { label: 'About Us', href: '/about' },
-  { label: 'Why Choose Us?', href: '/work' },
+  { label: 'Why Choose Us?', href: '/why-us' },
+  { label: 'Our Clients', href: '/clients' },
+  { label: 'Testimonials', href: '/testimonials' },
   { label: 'Services', href: '/services' },
+  { label: 'FAQ', href: '/faq' },
   { label: 'Contact Us', href: '/contact' },
   { label: 'Blogs', href: '/work' },
 ];

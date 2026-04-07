@@ -7,6 +7,10 @@ import ContactPage from './pages/ContactPage.jsx'
 import AboutPage from './pages/AboutPage.jsx'
 import WorkPage from './pages/WorkPage.jsx'
 import ServicesPage from './pages/ServicesPage.jsx'
+import WhyUsPage from './pages/WhyUsPage.jsx'
+import ClientsPage from './pages/ClientsPage.jsx'
+import TestimonialsPage from './pages/TestimonialsPage.jsx'
+import FAQPage from './pages/FAQPage.jsx'
 import Cursor from './components/Cursor.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
 
@@ -33,8 +37,12 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/why-us" element={<WhyUsPage />} />
         <Route path="/work" element={<WorkPage />} />
         <Route path="/services" element={<ServicesPage />} />
+        <Route path="/clients" element={<ClientsPage />} />
+        <Route path="/testimonials" element={<TestimonialsPage />} />
+        <Route path="/faq" element={<FAQPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </BrowserRouter>
