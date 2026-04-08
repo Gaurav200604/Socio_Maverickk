@@ -241,7 +241,11 @@
   }
 
   .hero-ticker {
-    bottom: 30px;
+    left: 50%;
+    right: auto;
+    width: 100vw;
+    transform: translateX(-50%);
+    bottom: 84px;
     padding: 14px 0;
   }
 
