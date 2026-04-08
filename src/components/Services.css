@@ -348,3 +348,74 @@
   .srv-grid { grid-template-columns: 1fr; }
   .srv-card { padding: 36px 20px; }
 }
+
+@media (max-width: 768px) {
+  .srv-left {
+    padding: 44px 20px 36px;
+  }
+
+  .srv-heading {
+    font-size: clamp(2.3rem, 10vw, 3.3rem);
+    letter-spacing: -1px;
+  }
+
+  .srv-sub {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+
+  .srv-cta-row {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .srv-cta {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .srv-bottom-nav {
+    padding: 20px 20px 0;
+  }
+
+  .srv-card {
+    min-height: 0;
+    padding: 30px 18px;
+  }
+
+  .srv-card-title {
+    font-size: clamp(1.3rem, 7vw, 1.7rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .srv-left {
+    padding: 38px 16px 30px;
+  }
+
+  .srv-tag {
+    margin-bottom: 14px;
+  }
+
+  .srv-heading {
+    font-size: clamp(2rem, 11vw, 2.8rem);
+    margin-bottom: 14px;
+  }
+
+  .srv-bottom-nav {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .srv-arrow {
+    width: 48px;
+    height: 48px;
+  }
+
+  .srv-arrow svg {
+    width: 18px;
+    height: 18px;
+  }
+}

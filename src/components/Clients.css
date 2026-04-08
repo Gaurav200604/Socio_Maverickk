@@ -212,3 +212,44 @@
     max-width: calc(min(50vw, 220px) - 16px) !important;
   }
 }
+
+@media (max-width: 480px) {
+  .clients-section {
+    padding: 50px 0;
+  }
+
+  .clients-title {
+    font-size: clamp(1.45rem, 8vw, 2rem);
+    letter-spacing: 1.5px;
+  }
+
+  .clients-subtitle {
+    font-size: 0.72rem;
+    letter-spacing: 0.8px;
+    margin-bottom: 30px;
+  }
+
+  .fade-l,
+  .fade-r {
+    width: 40px;
+  }
+
+  .m-logo-wrap {
+    width: min(62vw, 190px);
+    padding: 6px;
+  }
+
+  .m-logo-card {
+    height: 86px;
+    border-radius: 12px;
+    padding: 8px;
+  }
+
+  .m-logo-img,
+  .m-logo-large,
+  .m-logo-livesmart,
+  .m-logo-bttpl {
+    height: 76px !important;
+    max-width: calc(min(62vw, 190px) - 16px) !important;
+  }
+}

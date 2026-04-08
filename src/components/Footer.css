@@ -387,18 +387,25 @@
   }
 
   .social-icon {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
   }
 
   .social-icon svg {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
   }
 
   .social-icon img {
-    width: 19px;
-    height: 19px;
+    width: 28px;
+    height: 28px;
+    filter: none;
+  }
+
+  .social-icon--instagram img {
+    width: 40px;
+    height: 40px;
+    filter: none;
   }
 
   .footer-bottom {

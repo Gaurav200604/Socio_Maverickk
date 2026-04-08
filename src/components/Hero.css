@@ -192,6 +192,61 @@
   .hero-title { letter-spacing: -1px; }
 }
 
+@media (max-width: 900px) {
+  .hero {
+    padding: 92px 24px 70px;
+  }
+
+  .hero-desc {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 84px 16px 66px;
+  }
+
+  .hero-eyebrow {
+    font-size: clamp(1.2rem, 7vw, 1.6rem);
+    margin-bottom: 12px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 13vw, 3rem);
+    margin-bottom: 16px;
+  }
+
+  .hero-desc {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+
+  .hero-cta-row {
+    gap: 10px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 18px;
+    font-size: 0.9rem;
+  }
+
+  .hero-ticker {
+    padding: 14px 0;
+  }
+
+  .ticker-item {
+    font-size: 0.86rem;
+    letter-spacing: 2.2px;
+    gap: 14px;
+    padding: 0 18px;
+  }
+}
+
 /* cycling word */
 .hero-cycle-word {
   display: inline-block;

@@ -44,6 +44,19 @@ body {
   color: var(--light-black);
   overflow-x: hidden;
   cursor: auto;
+  -webkit-text-size-adjust: 100%;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+li {
+  overflow-wrap: anywhere;
 }
 
 img,
