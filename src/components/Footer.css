@@ -225,6 +225,10 @@
   height: 48px;
 }
 
+.social-icon--twitter img {
+  filter: grayscale(100%) contrast(1.15) brightness(1.05) opacity(0.72);
+}
+
 .social-icon:hover {
   color: var(--clr-orange);
   transform: translateY(-2px) scale(1.12);
@@ -233,6 +237,12 @@
 .social-icon:hover img {
   filter: grayscale(0%) saturate(1.35) brightness(1.1) opacity(1);
   transform: scale(1.18);
+}
+
+@media (min-width: 769px) {
+  .social-icon--twitter:hover img {
+    filter: none;
+  }
 }
 
 /* =========================================

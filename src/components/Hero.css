@@ -150,6 +150,7 @@
   overflow: hidden;
   background: var(--white);
   border-top: 1.5px solid var(--light-black);
+  border-bottom: 1.5px solid var(--light-black);
   padding: 18px 0;
   z-index: 3;
 }
@@ -194,17 +195,21 @@
 
 @media (max-width: 900px) {
   .hero {
-    padding: 92px 24px 70px;
+    padding: 92px 24px 116px;
   }
 
   .hero-desc {
     margin-bottom: 30px;
   }
+
+  .hero-ticker {
+    bottom: 24px;
+  }
 }
 
 @media (max-width: 480px) {
   .hero {
-    padding: 84px 16px 66px;
+    padding: 84px 16px 130px;
   }
 
   .hero-eyebrow {
@@ -236,6 +241,7 @@
   }
 
   .hero-ticker {
+    bottom: 30px;
     padding: 14px 0;
   }
 
