@@ -127,9 +127,9 @@ export default function Hero() {
 
         <h1 className="hero-title">
           START GROWING<br />
-          YOUR <span className="hero-word-group"><span
+          <span className="hero-line-two">YOUR <span className="hero-word-group"><span
             className={`hero-accent hero-cycle-word ${visible ? 'cycle-in' : 'cycle-out'}`}
-          >{CYCLE_WORDS[wordIdx]}</span><span className="hero-dot">.</span></span>
+          >{CYCLE_WORDS[wordIdx]}</span><span className="hero-dot">.</span></span></span>
         </h1>
 
         <p className="hero-desc">

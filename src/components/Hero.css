@@ -78,6 +78,11 @@
   margin-bottom: 24px;
 }
 
+.hero-line-two {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .hero-accent {
   color: var(--saffron);
   font-style: italic;
@@ -218,7 +223,8 @@
   }
 
   .hero-title {
-    font-size: clamp(2.2rem, 13vw, 3rem);
+    font-size: clamp(1.95rem, 11vw, 2.75rem);
+    line-height: 1.03;
     margin-bottom: 16px;
   }
 
@@ -254,6 +260,18 @@
     letter-spacing: 2.2px;
     gap: 14px;
     padding: 0 18px;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: clamp(1.8rem, 10.5vw, 2.45rem);
+    letter-spacing: -0.8px;
+  }
+
+  .hero-line-two {
+    transform: scale(0.98);
+    transform-origin: center top;
   }
 }
 
