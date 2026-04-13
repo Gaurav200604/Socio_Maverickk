@@ -1,0 +1,58 @@
+export const services = [
+  {
+    number: '01',
+    slug: 'seo',
+    path: '/services/seo',
+    title: 'Search Engine Optimization (SEO)',
+    desc: 'This page is ready. You can add full SEO service details here later.',
+  },
+  {
+    number: '02',
+    slug: 'creative-content-ai-marketing',
+    path: '/services/creative-content-ai-marketing',
+    title: 'Creative Content & A.I Marketing',
+    desc: 'This page is ready. You can add full Creative and A.I marketing details here later.',
+  },
+  {
+    number: '03',
+    slug: 'paid-advertising',
+    path: '/services/paid-advertising',
+    title: 'Paid Advertising',
+    desc: 'This page is ready. You can add full Paid Advertising details here later.',
+  },
+  {
+    number: '04',
+    slug: 'social-media-marketing',
+    path: '/services/social-media-marketing',
+    title: 'Social Media Marketing (SMM)',
+    desc: 'This page is ready. You can add full Social Media Marketing details here later.',
+  },
+  {
+    number: '05',
+    slug: 'website-design-development',
+    path: '/services/website-design-development',
+    title: 'Website Design & Development',
+    desc: 'This page is ready. You can add full Website Design and Development details here later.',
+  },
+  {
+    number: '06',
+    slug: 'event-management',
+    path: '/services/event-management',
+    title: 'Event Management',
+    desc: 'This page is ready. You can add full Event Management details here later.',
+  },
+  {
+    number: '07',
+    slug: 'production-photography',
+    path: '/services/production-photography',
+    title: 'Productions & Photography',
+    desc: 'This page is ready. You can add full Production and Photography details here later.',
+  },
+  {
+    number: '08',
+    slug: 'digital-pr-orm',
+    path: '/services/digital-pr-orm',
+    title: 'Digital PR & ORM',
+    desc: 'This page is ready. You can add full Digital PR and ORM details here later.',
+  },
+];

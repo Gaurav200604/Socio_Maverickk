@@ -280,6 +280,7 @@
   cursor: none;
   transition: background 0.25s ease;
   align-self: flex-start;
+  margin-top: 14px;
   user-select: none;
   -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent;
