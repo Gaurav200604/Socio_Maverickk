@@ -16,6 +16,7 @@
   align-items: center;
   justify-content: center;
   gap: clamp(10px, 1.4vh, 18px);
+  animation: seoRiseIn 0.8s ease-out both;
 }
 
 .seo-hero-image {
@@ -23,6 +24,8 @@
   width: min(700px, 78vw);
   margin: 0;
   object-fit: contain;
+  filter: drop-shadow(0 16px 34px rgba(48, 51, 59, 0.2));
+  animation: seoFloat 5.2s ease-in-out infinite;
 }
 
 .seo-hero-title {
@@ -61,6 +64,7 @@
   grid-template-columns: 1.1fr 1fr;
   align-items: center;
   gap: clamp(24px, 4vw, 68px);
+  animation: seoRiseIn 0.9s ease-out 0.12s both;
 }
 
 .seo-about-copy h2 {
@@ -91,6 +95,209 @@
   width: min(760px, 100%);
   margin-left: auto;
   object-fit: contain;
+  transition: transform 0.45s ease, filter 0.45s ease;
+}
+
+.seo-about-visual img:hover {
+  transform: translateY(-10px) scale(1.01);
+  filter: drop-shadow(0 18px 35px rgba(26, 29, 35, 0.2));
+}
+
+.seo-approach-section {
+  position: relative;
+  padding: clamp(52px, 6.4vw, 86px) 20px clamp(58px, 7.2vw, 96px);
+  background: linear-gradient(180deg, #ffffff 0%, #fff6ef 100%);
+  overflow: hidden;
+}
+
+.seo-approach-section::before,
+.seo-approach-section::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  border-radius: 999px;
+  filter: blur(60px);
+  opacity: 0.34;
+}
+
+.seo-approach-section::before {
+  width: 280px;
+  height: 280px;
+  top: -90px;
+  left: -70px;
+  background: radial-gradient(circle, rgba(241, 123, 63, 0.18), rgba(241, 123, 63, 0));
+}
+
+.seo-approach-section::after {
+  width: 300px;
+  height: 300px;
+  right: -110px;
+  bottom: -140px;
+  background: radial-gradient(circle, rgba(255, 198, 92, 0.2), rgba(255, 198, 92, 0));
+}
+
+.seo-approach-shell {
+  position: relative;
+  z-index: 1;
+  max-width: 1460px;
+  margin: 0 auto;
+}
+
+.seo-approach-heading {
+  margin: 0;
+  text-align: center;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: clamp(2.1rem, 3.3vw, 4.35rem);
+  font-weight: 800;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  color: #1f252d;
+  animation: seoRiseIn 0.85s ease-out 0.05s both;
+}
+
+.seo-approach-heading span {
+  color: #f17b3f;
+}
+
+.seo-approach-grid {
+  margin-top: clamp(30px, 4.2vw, 62px);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 410px));
+  grid-auto-rows: 1fr;
+  column-gap: clamp(16px, 1.5vw, 24px);
+  row-gap: clamp(28px, 2.8vw, 46px);
+  align-items: stretch;
+  justify-content: center;
+}
+
+.seo-approach-card {
+  --card-index: 0;
+  padding: clamp(16px, 1.3vw, 21px) clamp(12px, 1vw, 17px) clamp(18px, 1.45vw, 24px);
+  position: relative;
+  isolation: isolate;
+  border-radius: 36px;
+  border: 1px solid rgba(31, 37, 45, 0.08);
+  background: linear-gradient(180deg, #ffffff 0%, #fffaf6 100%);
+  text-align: center;
+  min-height: clamp(420px, 28vw, 520px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  will-change: transform;
+  transform-origin: center center;
+  z-index: 0;
+  transition: transform 0.42s cubic-bezier(0.22, 0.61, 0.36, 1), border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    background-color 0.35s ease;
+  box-shadow: 0 10px 28px rgba(18, 24, 31, 0.08);
+  animation: seoRiseIn 0.7s ease-out both;
+  animation-delay: calc(0.1s + var(--card-index) * 0.08s);
+}
+
+.seo-approach-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 22% 10%, rgba(241, 123, 63, 0.16), rgba(241, 123, 63, 0));
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: -1;
+}
+
+.seo-approach-card:hover {
+  transform: translateY(-10px) scale(1.15);
+  z-index: 3;
+  border-color: #f17b3f;
+  background: linear-gradient(180deg, #ffffff 0%, #fff2e6 100%);
+  box-shadow: 0 22px 40px rgba(241, 123, 63, 0.2), 0 0 0 1px rgba(241, 123, 63, 0.22);
+}
+
+.seo-approach-card:hover::before {
+  opacity: 1;
+}
+
+.seo-approach-card h3 {
+  margin: clamp(16px, 1.6vw, 22px) 0 0;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: clamp(1.62rem, 2vw, 2.75rem);
+  line-height: 1.12;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  color: #1f252d;
+}
+
+.seo-approach-card h3.seo-title-nowrap {
+  white-space: nowrap;
+  font-size: clamp(1.45rem, 1.75vw, 2.35rem);
+}
+
+.seo-approach-card p {
+  margin: clamp(14px, 1.5vw, 22px) 0 0;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: clamp(0.98rem, 1vw, 1.12rem);
+  line-height: 1.42;
+  font-weight: 500;
+  color: #4c5561;
+  transition: color 0.3s ease;
+}
+
+.seo-approach-icon {
+  width: clamp(92px, 7.6vw, 126px);
+  height: clamp(92px, 7.6vw, 126px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s ease;
+}
+
+.seo-approach-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: #f17b3f;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 5px 10px rgba(241, 123, 63, 0.22));
+  transition: filter 0.35s ease, stroke 0.35s ease;
+}
+
+.seo-approach-card:hover .seo-approach-icon {
+  transform: translateY(-6px) scale(1.08);
+}
+
+.seo-approach-card:hover .seo-approach-icon svg {
+  stroke: #ff9a5d;
+  filter: drop-shadow(0 8px 14px rgba(241, 123, 63, 0.34));
+}
+
+.seo-approach-card:hover p {
+  color: #343c47;
+}
+
+@keyframes seoRiseIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes seoFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 @media (min-width: 1024px) {
@@ -173,6 +380,26 @@
     width: min(640px, 100%);
     margin: 0 auto;
   }
+
+  .seo-approach-section {
+    padding: 44px 16px 72px;
+  }
+
+  .seo-approach-grid {
+    grid-template-columns: repeat(2, minmax(0, 340px));
+    column-gap: 18px;
+    row-gap: 30px;
+    justify-content: center;
+  }
+
+  .seo-approach-card {
+    border-radius: 30px;
+    min-height: 380px;
+  }
+
+  .seo-approach-card:hover {
+    transform: translateY(-8px) scale(1.11);
+  }
 }
 
 @media (max-width: 600px) {
@@ -206,5 +433,63 @@
   .seo-about-copy p {
     font-size: 0.99rem;
     line-height: 1.66;
+  }
+
+  .seo-approach-section {
+    padding: 36px 14px 56px;
+  }
+
+  .seo-approach-heading {
+    font-size: clamp(1.4rem, 8vw, 2.3rem);
+    line-height: 1.28;
+  }
+
+  .seo-approach-grid {
+    grid-template-columns: 1fr;
+    margin-top: 26px;
+    row-gap: 18px;
+  }
+
+  .seo-approach-card {
+    min-height: 340px;
+    border-radius: 26px;
+    padding: 22px 16px 28px;
+  }
+
+  .seo-approach-card:hover {
+    transform: translateY(-6px) scale(1.07);
+  }
+
+  .seo-approach-card h3 {
+    font-size: 1.9rem;
+  }
+
+  .seo-approach-card p {
+    font-size: 0.98rem;
+    line-height: 1.54;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seo-hero-content,
+  .seo-about-content,
+  .seo-approach-heading,
+  .seo-approach-card,
+  .seo-hero-image {
+    animation: none;
+  }
+
+  .seo-about-visual img,
+  .seo-approach-card,
+  .seo-approach-card::before,
+  .seo-approach-icon,
+  .seo-approach-icon svg,
+  .seo-approach-card p {
+    transition: none;
+  }
+
+  .seo-about-visual img:hover,
+  .seo-approach-card:hover .seo-approach-icon {
+    transform: none;
   }
 }
