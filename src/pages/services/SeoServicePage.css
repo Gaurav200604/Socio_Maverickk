@@ -1,5 +1,6 @@
 .seo-page-main {
   padding-top: 80px;
+  overflow-x: clip;
 }
 
 .seo-hero-section {
@@ -398,7 +399,7 @@
   }
 
   .seo-approach-card:hover {
-    transform: translateY(-8px) scale(1.11);
+    transform: translateY(-6px) scale(1.04);
   }
 }
 
@@ -457,7 +458,7 @@
   }
 
   .seo-approach-card:hover {
-    transform: translateY(-6px) scale(1.07);
+    transform: translateY(-4px) scale(1.02);
   }
 
   .seo-approach-card h3 {
@@ -467,6 +468,54 @@
   .seo-approach-card p {
     font-size: 0.98rem;
     line-height: 1.54;
+  }
+}
+
+@media (max-width: 420px) {
+  .seo-hero-title {
+    font-size: clamp(1.9rem, 9vw, 2.45rem);
+    line-height: 1.16;
+  }
+
+  .seo-hero-description {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .seo-about-copy h2 {
+    font-size: clamp(1.5rem, 8.5vw, 2.15rem);
+    line-height: 1.18;
+  }
+
+  .seo-about-copy p {
+    font-size: 0.94rem;
+    line-height: 1.62;
+  }
+
+  .seo-approach-card {
+    min-height: 300px;
+    padding: 18px 14px 22px;
+  }
+
+  .seo-approach-card h3 {
+    font-size: 1.45rem;
+    line-height: 1.22;
+  }
+
+  .seo-approach-card p {
+    font-size: 0.92rem;
+  }
+}
+
+@media (hover: none) {
+  .seo-about-visual img:hover,
+  .seo-approach-card:hover,
+  .seo-approach-card:hover .seo-approach-icon,
+  .seo-approach-card:hover .seo-approach-icon svg {
+    transform: none;
+    box-shadow: 0 10px 28px rgba(18, 24, 31, 0.08);
+    border-color: rgba(31, 37, 45, 0.08);
+    filter: drop-shadow(0 5px 10px rgba(241, 123, 63, 0.22));
   }
 }
 
