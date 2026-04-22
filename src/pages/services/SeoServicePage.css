@@ -3,6 +3,10 @@
   overflow-x: clip;
 }
 
+.digital-pr-orm-page .seo-hero-image {
+  width: min(820px, 88vw);
+}
+
 .seo-hero-section {
   padding: 14px 20px 56px;
   background-color: #ffffff;
@@ -323,6 +327,11 @@
     margin: 0;
   }
 
+  .digital-pr-orm-page .seo-hero-image {
+    max-width: min(920px, 74vw);
+    max-height: 62vh;
+  }
+
   .seo-hero-title {
     font-size: clamp(2.6rem, 6.1vh, 4.6rem);
     line-height: 1.08;
@@ -339,6 +348,11 @@
   .seo-hero-image {
     max-height: 48vh;
     max-width: min(660px, 62vw);
+  }
+
+  .digital-pr-orm-page .seo-hero-image {
+    max-height: 56vh;
+    max-width: min(780px, 70vw);
   }
 
   .seo-hero-title {
@@ -358,6 +372,10 @@
 
   .seo-hero-image {
     width: min(620px, 88vw);
+  }
+
+  .digital-pr-orm-page .seo-hero-image {
+    width: min(700px, 92vw);
   }
 
   .seo-hero-description {
@@ -410,6 +428,10 @@
 
   .seo-hero-image {
     width: min(500px, 92vw);
+  }
+
+  .digital-pr-orm-page .seo-hero-image {
+    width: min(560px, 95vw);
   }
 
   .seo-hero-title {

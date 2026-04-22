@@ -2,7 +2,7 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import ServiceFaq from '../../components/ServiceFaq';
 import '../InfoPage.css';
-import seoHeroImage from '../../assetservice/1.png';
+import seoHeroImage from '../../assetservice/digital.png';
 
 import './SeoServicePage.css';
 
@@ -64,7 +64,7 @@ export default function DigitalPrOrmServicePage() {
   return (
     <>
       <Navbar />
-      <main className="info-page-main seo-page-main">
+      <main className="info-page-main seo-page-main digital-pr-orm-page">
         <section className="seo-hero-section">
           <div className="seo-hero-content">
             <img

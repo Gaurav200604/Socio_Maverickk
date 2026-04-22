@@ -2,7 +2,7 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import ServiceFaq from '../../components/ServiceFaq';
 import '../InfoPage.css';
-import seoHeroImage from '../../assetservice/1.png';
+import seoHeroImage from '../../assetservice/product.png';
 
 import './SeoServicePage.css';
 
