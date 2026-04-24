@@ -2,7 +2,7 @@ import logo from '../assets/socio_mavrick.png';
 import fbIcon from '../assetsocial/facebook.svg';
 import igIcon from '../assetsocial/instagram.svg';
 import liIcon from '../assetsocial/linkedin.svg';
-import twIcon from '../assetsocial/twitter.svg';
+import twIcon from '../assetsocial/twitter.png';
 import './Footer.css';
 
 const companyLinks = [
