@@ -22,7 +22,7 @@
   top: -60px;
   left: 50%;
   transform: translateX(-50%);
-  width: 600px;
+  width: min(600px, 92vw);
   height: 200px;
   background: radial-gradient(ellipse, rgba(244,166,35,0.2) 0%, transparent 70%);
   pointer-events: none;
@@ -70,7 +70,7 @@
 .fade-r {
   position: absolute;
   top: 0; bottom: 0;
-  width: 200px;
+  width: clamp(48px, 14vw, 200px);
   pointer-events: none;
   z-index: 3;
 }
@@ -185,11 +185,6 @@
 }
 
 @media (max-width: 700px) {
-  .fade-l,
-  .fade-r {
-    width: 72px;
-  }
-
   .m-logo-wrap {
     width: min(50vw, 220px);
     padding: 8px;
@@ -229,11 +224,6 @@
     margin-bottom: 30px;
   }
 
-  .fade-l,
-  .fade-r {
-    width: 40px;
-  }
-
   .m-logo-wrap {
     width: min(62vw, 190px);
     padding: 6px;
@@ -251,5 +241,36 @@
   .m-logo-bttpl {
     height: 76px !important;
     max-width: calc(min(62vw, 190px) - 16px) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .clients-section {
+    padding: 44px 0;
+  }
+
+  .clients-title {
+    letter-spacing: 1px;
+  }
+
+  .clients-subtitle {
+    font-size: 0.68rem;
+    margin-bottom: 24px;
+  }
+
+  .m-logo-wrap {
+    width: min(72vw, 172px);
+  }
+
+  .m-logo-card {
+    height: 80px;
+  }
+
+  .m-logo-img,
+  .m-logo-large,
+  .m-logo-livesmart,
+  .m-logo-bttpl {
+    height: 68px !important;
+    max-width: calc(min(72vw, 172px) - 14px) !important;
   }
 }

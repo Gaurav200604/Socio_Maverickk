@@ -21,6 +21,7 @@ import ProductionPhotographyServicePage from './pages/services/ProductionPhotogr
 import DigitalPrOrmServicePage from './pages/services/DigitalPrOrmServicePage.jsx'
 import Cursor from './components/Cursor.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
+import SeoManager from './components/SeoManager.jsx'
 
 const removeTextFragmentHighlight = () => {
   if (typeof window === 'undefined') return;
@@ -41,6 +42,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <ScrollToTop />
+      <SeoManager />
       <Cursor />
       <Routes>
         <Route path="/" element={<App />} />

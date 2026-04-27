@@ -2,6 +2,7 @@
   background: var(--white);
   padding-bottom: 0;
   position: relative;
+  --srv-left-width: clamp(300px, 30vw, 360px);
 }
 
 .srv-layout {
@@ -13,8 +14,8 @@
 
 /* ── LEFT ── */
 .srv-left {
-  width: 360px;
-  min-width: 360px;
+  width: var(--srv-left-width);
+  min-width: var(--srv-left-width);
   background: #1a1a1a;
   display: flex;
   flex-direction: column;
@@ -99,7 +100,7 @@
   grid-template-columns: 1fr 1fr;
   align-items: center;
   position: absolute;
-  left: 360px;
+  left: var(--srv-left-width);
   right: 0;
   top: calc(50% - 4px);
   transform: translateY(-50%);
@@ -316,6 +317,10 @@
 
 /* responsive */
 @media (max-width: 1024px) {
+  .srv-section {
+    --srv-left-width: 100%;
+  }
+
   .srv-layout { flex-direction: column; }
   .srv-left { width: 100%; min-width: unset; position: static; height: auto; padding: 60px 24px 48px; }
   .srv-grid { height: auto; }
@@ -351,6 +356,10 @@
 }
 
 @media (max-width: 768px) {
+  .srv-section {
+    --srv-left-width: 100%;
+  }
+
   .srv-left {
     padding: 44px 20px 36px;
   }
@@ -392,6 +401,10 @@
 }
 
 @media (max-width: 480px) {
+  .srv-section {
+    --srv-left-width: 100%;
+  }
+
   .srv-left {
     padding: 38px 16px 30px;
   }
@@ -418,5 +431,25 @@
   .srv-arrow svg {
     width: 18px;
     height: 18px;
+  }
+}
+
+@media (max-width: 380px) {
+  .srv-left {
+    padding: 34px 14px 26px;
+  }
+
+  .srv-sub {
+    font-size: 0.84rem;
+    line-height: 1.58;
+  }
+
+  .srv-card {
+    padding: 26px 14px;
+  }
+
+  .srv-card-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
   }
 }

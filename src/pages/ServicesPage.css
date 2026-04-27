@@ -1,3 +1,15 @@
 .services-page-main {
-  padding-top: 80px;
+  padding-top: 92px;
+}
+
+@media (max-width: 768px) {
+  .services-page-main {
+    padding-top: 86px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-page-main {
+    padding-top: 80px;
+  }
 }

@@ -36,7 +36,7 @@ export default function Navbar() {
     
     { label: 'Work', path: '/work' },
     { label: 'Services', path: '/services' },
-    { label: 'Blogs', path: '/faq' },
+    { label: 'FAQ', path: '/faq' },
     { label: 'Contact', path: '/contact' },
   ];
 
