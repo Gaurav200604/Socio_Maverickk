@@ -14,6 +14,8 @@ const companyLinks = [
   { label: 'FAQ', href: '/faq' },
   { label: 'Contact Us', href: '/contact' },
   { label: 'Blogs', href: '/work' },
+  {label: 'Careers', href: '/Careers'},
+  
 ];
 
 const services = [
