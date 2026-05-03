@@ -5,7 +5,7 @@ import '../InfoPage.css';
 import creativeAiHeroImage from '../../assetservice/3.png';
 import creativeAiAboutImage from '../../assetservice/3.png';
 
-import './SeoServicePage.css';
+import './servicescomponentstyle.css';
 
 const creativeAiApproachCards = [
   {

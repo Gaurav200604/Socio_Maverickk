@@ -4,7 +4,7 @@ import ServiceFaq from '../../components/ServiceFaq';
 import '../InfoPage.css';
 import seoHeroImage from '../../assetservice/product.png';
 
-import './SeoServicePage.css';
+import './servicescomponentstyle.css';
 
 const productionPhotographyFaq = [
   {

@@ -5,7 +5,7 @@ import '../InfoPage.css';
 import seoHeroImage from '../../assetservice/1.png';
 import seoAboutImage from '../../assetservice/2.png';
 
-import './SeoServicePage.css';
+import './servicescomponentstyle.css';
 
 const seoApproachCards = [
   {
